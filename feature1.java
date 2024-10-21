@@ -8,11 +8,10 @@ public class feature1 {
         System.out.print("Enter Name: ");
         String name = ui.nextLine();
 
-        if(name == "max")  
-        {
-            System.out.println("My name is  " + name);
-        }
-        else System.out.println(" Not correct. IMPOSTER!!!!"); 
+       
+            System.out.println("My name is  " +  name);
+        
+        // else System.out.println(" Not correct. IMPOSTER!!!!"); 
         
 
         ui.close();
