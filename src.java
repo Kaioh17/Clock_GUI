@@ -4,7 +4,7 @@ public class src {
        
          
         String name = "otot";
-        String actName;
+      
 
         if(name == "otot")  System.out.println("My name is  " + name);
         else System.out.println(" Not correct. IMPOSTER!!!!"); 
