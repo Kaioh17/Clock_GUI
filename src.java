@@ -3,7 +3,7 @@ public class src {
     {
        
          
-        String name = "tot";
+        String name = "otot";
         String actName;
 
         if(name == "otot")  System.out.println("My name is  " + name);
