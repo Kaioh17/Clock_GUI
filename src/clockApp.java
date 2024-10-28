@@ -32,15 +32,25 @@ public class clockApp extends JFrame
         //Creating a menu to handle the different panels
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("options");
+        menu.setFont(new Font("Gothic", Font.PLAIN, 18));
         JMenuItem timerItem = new JMenuItem("Timer");
         JMenuItem alarmItem = new JMenuItem("Alarm");
-        JMenuItem stopWatchItem = new JMenuItem("Stop Watch");
+        JMenuItem stopWatchItem = new JMenuItem("Stop Watch");  
+
+        //Set font for menu items
+        Font menuItemFont = new Font("Arial", Font.PLAIN, 14);
+        timerItem.setFont(menuItemFont);
+        alarmItem.setFont(menuItemFont);
+        stopWatchItem.setFont(menuItemFont);
+        
+
 
         //using lambda to give the panels actions
         timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Timer"));
         timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Alarm")); 
         timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Stopwatch"));
 
+        //Add the menu options to the main frame
         menu.add(timerItem);
         menu.add(alarmItem);
         menu.add(stopWatchItem);
