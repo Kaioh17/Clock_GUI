@@ -17,6 +17,8 @@ public class clockApp extends JFrame
         setSize(480,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setAlwaysOnTop(rootPaneCheckingEnabled);
+        setResizable(false);
+        
 
        //initialize card layout and panel
         cardLayout = new CardLayout();
@@ -29,10 +31,22 @@ public class clockApp extends JFrame
 
         //Creating a menu to handle the different panels
         JMenuBar menuBar = new JMenuBar();
-        JMenu mennu = new JMenu("options");
+        JMenu menu = new JMenu("options");
+        JMenuItem timerItem = new JMenuItem("Timer");
+        JMenuItem alarmItem = new JMenuItem("Alarm");
+        JMenuItem stopWatchItem = new JMenuItem("Stop Watch");
 
+        //using lambda to give the panels actions
+        timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Timer"));
+        timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Alarm")); 
+        timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Stopwatch"));
 
+        menu.add(timerItem);
+        menu.add(alarmItem);
+        menu.add(stopWatchItem);
+        menuBar.add(menu);
 
+        setJMenuBar(menuBar);
         add(mainPanel);
 
     }
