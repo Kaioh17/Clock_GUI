@@ -6,65 +6,49 @@ import javax.swing.*;
 
 public class clockApp extends JFrame 
 {
-    private JPanel mainPanel;
     private CardLayout cardLayout;
-    
-    
+    private JPanel clockPanel;
+
    public clockApp()
     {
         //Set up for main frame
         setTitle("Clock");
-        setSize(480,300);
+        setSize(500,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setAlwaysOnTop(rootPaneCheckingEnabled);
-        setResizable(false);
-        
+        setResizable(true);
 
-       //initialize card layout and panel
+        //cardLayout for switching betwen panels
         cardLayout = new CardLayout();
-        mainPanel = new JPanel();
+        clockPanel = new JPanel();
 
-        //create and add the various other pannels
-        mainPanel.add(new timerPanel(), "Timer");
-        mainPanel.add(new alarmPanel(), "Alarm");
-        mainPanel.add(new stopWatchPanel(), "Stop Watch");
+        // add the classes to the main panel
+        clockPanel.add(new timerPanel(), "Timer");
+        clockPanel.add(new alarmPanel(), "Alarm");
+        clockPanel.add(new stopWatchPanel(), "Stop Watch");
 
-        //Creating a menu to handle the different panels
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("options");
-        menu.setFont(new Font("Gothic", Font.PLAIN, 18));
-        JMenuItem timerItem = new JMenuItem("Timer");
-        JMenuItem alarmItem = new JMenuItem("Alarm");
-        JMenuItem stopWatchItem = new JMenuItem("Stop Watch");  
+        //create buttons
+        JButton timerButton = new JButton("Timer");
+        JButton alarmButton = new JButton("Alarm");
+        JButton stopWatchButton = new JButton("Stop Watch");
 
-        //Set font for menu items
-        Font menuItemFont = new Font("Arial", Font.PLAIN, 14);
-        timerItem.setFont(menuItemFont);
-        alarmItem.setFont(menuItemFont);
-        stopWatchItem.setFont(menuItemFont);
+        //Action listeners for the button functions(using lambda)
+        timerButton.addActionListener(e -> cardLayout.show(clockPanel, "Timer"));
+        alarmButton.addActionListener(e -> cardLayout.show(clockPanel, "Alarm"));
+        stopWatchButton.addActionListener(e -> cardLayout.show(clockPanel, "Stop Watch"));
+
+        //A panel for the buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(timerButton);
+        buttonPanel.add(alarmButton);
+        buttonPanel.add(stopWatchButton);
+
+        //Add panels to the main frame
+        add(buttonPanel, BorderLayout.NORTH);
+        add(clockPanel, BorderLayout.CENTER);
         
-
-
-        //using lambda to give the panels actions
-        timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Timer"));
-        timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Alarm")); 
-        timerItem.addActionListener(e -> cardLayout.show(mainPanel, "Stopwatch"));
-
-        //Add the menu options to the main frame
-        menu.add(timerItem);
-        menu.add(alarmItem);
-        menu.add(stopWatchItem);
-        menuBar.add(menu);
-
-        setJMenuBar(menuBar);
-        add(mainPanel);
-
+       
     }
-    
-    
-    
 
-
-    
+   
 
 }
