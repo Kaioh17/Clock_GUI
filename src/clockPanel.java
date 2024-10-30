@@ -2,6 +2,7 @@ package src;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import styles.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,9 @@ public class clockPanel extends JPanel{
     private String time;
     private String day;
 
+    /**
+     This will be used te set real time and date on every panel* 
+     */
     public clockPanel()
     {
         
@@ -24,9 +28,9 @@ public class clockPanel extends JPanel{
 
 
         timeLabel = new JLabel();
-        timeLabel.setFont(new Font("Times New Roman",Font.PLAIN,15));
+        timeLabel.setFont(font_Style.roman.getFont());
         dayLabel = new JLabel();
-        dayLabel.setFont(new Font("Times New Roman",Font.PLAIN,15));
+        dayLabel.setFont(font_Style.roman.getFont());
         
 
         
@@ -40,10 +44,11 @@ public class clockPanel extends JPanel{
         
     }
 
+   
     public void setTime()
     {
        
-       
+            
             time =  timeFormat.format(Calendar.getInstance().getTime());
             timeLabel.setText(time);
 
