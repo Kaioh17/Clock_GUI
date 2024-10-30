@@ -1,47 +1,56 @@
 package src;
 
-import javax.swing.*;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import javax.swing.*;
+import java.awt.*;
+
+
 public class clockPanel extends JPanel{
 
-    private Calendar calender;
     private SimpleDateFormat timeFormat;
+    private SimpleDateFormat dayFormat;
     private JLabel timeLabel;
-    String time;
+    private JLabel dayLabel;
+    private String time;
+    private String day;
 
     public clockPanel()
     {
-        timeFormat = new SimpleDateFormat("hh:mm:ss a");
+        
+        timeFormat = new SimpleDateFormat("hh:mm:ss a  ");
+        dayFormat = new SimpleDateFormat(" MMMMM dd, yyyy");
+
+
         timeLabel = new JLabel();
+        timeLabel.setFont(new Font("Times New Roman",Font.PLAIN,15));
+        dayLabel = new JLabel();
+        dayLabel.setFont(new Font("Times New Roman",Font.PLAIN,15));
+        
 
-        time =  timeFormat.format(Calendar.getInstance().getTime());
-        timeLabel.setText(time);
-
+        
          add(timeLabel);
+         add(dayLabel);
 
-         setTime();
+         //using a timer to update every 1000 milliseconds hence 1 second
+         Timer timer = new Timer(1000, e -> setTime());
+         timer.start();
 
+        
     }
 
-    private void setTime()
+    public void setTime()
     {
-        //this will allow it to keep running until it is closed
-        while(true){
+       
+       
             time =  timeFormat.format(Calendar.getInstance().getTime());
             timeLabel.setText(time);
 
-            //this will handle any error that could slow down or crash the code
-            try
-            {
-                // this will be use to iterate throught the time ever 1000 millisecond hence: 1second
-                Thread.sleep(1000);
-            }
-            catch(InterruptedException e)
-            {
-                e.printStackTrace();
-            }
-        }        
-    }
+            day = dayFormat.format(Calendar.getInstance().getTime());
+            dayLabel.setText(day);
+
+            
+     }
+    
 }
