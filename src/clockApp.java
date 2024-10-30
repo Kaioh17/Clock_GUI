@@ -49,6 +49,17 @@ public class clockApp extends JFrame
        
     }
 
+    public static void main(String[] args)
+    {
+        //use SwingUtilities.invokeLater to ensure thred safety 
+        SwingUtilities.invokeLater(() -> {
+            clockApp clock = new clockApp();
+
+            clock.setVisible(true);
+         });
+       
+    }
+
    
 
 }
