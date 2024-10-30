@@ -16,6 +16,7 @@ public class Main extends JFrame
         setSize(500,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
+       
 
         //cardLayout for switching betwen panels
         cardLayout = new CardLayout();
