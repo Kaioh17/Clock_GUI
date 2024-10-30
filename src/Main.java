@@ -3,13 +3,15 @@ package src;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class Main extends JFrame 
 {
     private CardLayout cardLayout;
     private JPanel clockPanel;
 
-   public Main()
+  
+public Main()
     {
         //Set up for main frame
         setTitle("Clock");
@@ -43,9 +45,17 @@ public class Main extends JFrame
         buttonPanel.add(alarmButton);
         buttonPanel.add(stopWatchButton);
 
+        /**
+        Panel to set clock and calender in real time *          
+        */
+        JPanel clock_Panel = new JPanel();
+       clock_Panel.add(new clockPanel());
+
         //Add panels to the main frame
         add(buttonPanel, BorderLayout.SOUTH);
         add(clockPanel, BorderLayout.CENTER);
+        add(clock_Panel,BorderLayout.NORTH);
+        
         
        
     }
