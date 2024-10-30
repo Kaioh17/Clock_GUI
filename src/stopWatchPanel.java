@@ -22,9 +22,10 @@ public class stopWatchPanel extends JPanel{
         setLayout(new BorderLayout());
 
         //Initialize all component
-        stopWatchLabel = new JLabel("00:00:00");
+        stopWatchLabel = new JLabel("00:00.00");
+        stopWatchLabel.setFont(new Font("Times New Roman",Font.PLAIN,45));
 
-        add(stopWatchLabel, BorderLayout.SOUTH);
+        
 
         buttonPanel = new JPanel();
         startButton = new JButton("Start");
@@ -36,7 +37,7 @@ public class stopWatchPanel extends JPanel{
         buttonPanel.add(startButton);
         buttonPanel.add(stopButton);
         buttonPanel.add(resetButton);
-        add(buttonPanel, BorderLayout.NORTH);
+        
 
 
         //Give the buttons functions
@@ -53,7 +54,10 @@ public class stopWatchPanel extends JPanel{
          startButton.addActionListener(e -> start());
          stopButton.addActionListener(e -> stop());
          resetButton.addActionListener(e -> reset());
-          
+
+         
+         add(stopWatchLabel, BorderLayout.CENTER);
+          add(buttonPanel, BorderLayout.SOUTH);
     }
 
     private void start()
