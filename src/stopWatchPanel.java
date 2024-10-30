@@ -1,5 +1,6 @@
 package src;
 
+import styles.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -23,7 +24,7 @@ public class stopWatchPanel extends JPanel{
 
         //Initialize all component
         stopWatchLabel = new JLabel("00:00.00");
-        stopWatchLabel.setFont(new Font("Times New Roman",Font.PLAIN,45));
+        stopWatchLabel.setFont(font_Style.ROMAN.getFont());
 
         
 
