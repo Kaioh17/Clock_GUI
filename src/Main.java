@@ -1,4 +1,5 @@
 package src;
+
 import javax.swing.*;
 
 public class Main {
@@ -9,8 +10,7 @@ public class Main {
             clockApp clock = new clockApp();
 
             clock.setVisible(true);
-
-        });
+         });
        
     }
 }
