@@ -5,7 +5,7 @@ import javax.swing.*;
 //import src.Main;
 
 import java.awt.*;
-import java.awt.event.*;
+// import java.awt.event.*;
 
 public class font_Style  {
 
@@ -13,8 +13,11 @@ public class font_Style  {
     private int style;
     private int size;
 
-    public static final font_Style ROMAN = new font_Style("Times New Roman",Font.PLAIN,45);
+
+    //initialized font style method for easier editing and control
+    public static final font_Style ROMAN = new font_Style("Times New Roman",Font.PLAIN,55);
     public static final font_Style roman = new font_Style("Times New Roman",Font.PLAIN,15);
+    public static final font_Style ROMANII = new font_Style("Malgun Gothic",Font.PLAIN,35);
 
     
     public font_Style(String fontName, int style,int size)
