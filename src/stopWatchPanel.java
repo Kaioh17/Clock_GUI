@@ -25,6 +25,9 @@ public class stopWatchPanel extends JPanel{
         //Initialize all component
         stopWatchLabel = new JLabel("00:00.00");
         stopWatchLabel.setFont(font_Style.ROMAN.getFont());
+        stopWatchLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        // stopWatchLabel.setVerticalAlignment();
+        stopWatchLabel.setForeground(Color.BLACK);
 
         
 
@@ -32,12 +35,13 @@ public class stopWatchPanel extends JPanel{
         startButton = new JButton("Start");
         stopButton = new JButton("Stop");
         resetButton = new JButton("Reset");
-
+        
 
         //add the buttons to the button panel
         buttonPanel.add(startButton);
         buttonPanel.add(stopButton);
         buttonPanel.add(resetButton);
+        
         
 
 
@@ -83,7 +87,7 @@ public class stopWatchPanel extends JPanel{
         int minutes = (elapsedTime / 60000) % 60;
         int seconds = (elapsedTime / 1000) % 60;
 
-        String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        String timeString = String.format("%02d:%02d.%02d", hours, minutes, seconds);
         stopWatchLabel.setText(timeString);
     }
 
