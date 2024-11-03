@@ -36,9 +36,8 @@ public Main()
         JButton stopWatchButton = new JButton("Stop Watch");
 
         //edit the button
-        timerButton.setBackground(Color.GREEN);
-        timerButton.setForeground(Color.BLACK);
-        timerButton.setFont(font_Style.roman.getFont());
+        button_Style.mainStyle(timerButton, alarmButton,  stopWatchButton);
+       
        
 
         //Action listeners for the button functions(using lambda)
