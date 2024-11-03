@@ -26,7 +26,6 @@ public class stopWatchPanel extends JPanel{
         stopWatchLabel = new JLabel("00:00.00");
         stopWatchLabel.setFont(font_Style.ROMAN.getFont());
         stopWatchLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        // stopWatchLabel.setVerticalAlignment();
         stopWatchLabel.setForeground(Color.BLACK);
 
         
@@ -35,6 +34,11 @@ public class stopWatchPanel extends JPanel{
         startButton = new JButton("Start");
         stopButton = new JButton("Stop");
         resetButton = new JButton("Reset");
+
+        //Edit button
+        button_Style.attributeStyle(startButton, stopButton, resetButton);
+
+        
         
 
         //add the buttons to the button panel
