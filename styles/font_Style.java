@@ -16,7 +16,7 @@ public class font_Style  {
 
     //initialized font style method for easier editing and control
     public static final font_Style ROMAN = new font_Style("Times New Roman",Font.PLAIN,55);
-    public static final font_Style roman = new font_Style("Times New Roman",Font.PLAIN,15);
+    public static final font_Style roman = new font_Style("Times New Roman",Font.PLAIN,18);
     public static final font_Style ROMANII = new font_Style("Malgun Gothic",Font.PLAIN,35);
 
     
