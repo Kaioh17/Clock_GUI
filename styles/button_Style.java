@@ -14,7 +14,10 @@ public class button_Style {
         for(JButton button : buttons )
         {
             button.setBackground(Color.BLACK);
+            button.setForeground(Color.WHITE);
             button.setFont(font_Style.roman.getFont());
+            // button.setBorder(null);
+            button.setSize(150, 10);
         }
     }
 
@@ -22,10 +25,24 @@ public class button_Style {
     {
         for(JButton button : buttons)
         {
-            button.setBackground(Color.BLACK);
+            button.setBackground(Color.BLUE);
+            button.setForeground(Color.WHITE);
             button.setFont(font_Style.roman.getFont());
         }
     }
+
+    public static void stopStyle(JButton... buttons)
+    {
+        for(JButton button : buttons)
+        {
+            button.setBackground(Color.RED); 
+            button.setForeground(Color.WHITE);
+            button.setFont(font_Style.roman.getFont());
+        }
+    }
+
+
+
 
     
 }
