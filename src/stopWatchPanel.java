@@ -27,7 +27,7 @@ public class stopWatchPanel extends JPanel{
         stopWatchLabel.setFont(font_Style.ROMAN.getFont());
         stopWatchLabel.setHorizontalAlignment(SwingConstants.CENTER);
         stopWatchLabel.setForeground(Color.BLACK);
-
+       
         
 
         buttonPanel = new JPanel();
