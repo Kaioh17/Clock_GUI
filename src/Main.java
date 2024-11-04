@@ -19,6 +19,7 @@ public Main()
         setSize(550,330);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
+        setBackground(Color.BLACK);
        
 
         //cardLayout for switching betwen panels
