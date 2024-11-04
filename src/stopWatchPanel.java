@@ -36,7 +36,8 @@ public class stopWatchPanel extends JPanel{
         resetButton = new JButton("Reset");
 
         //Edit button
-        button_Style.attributeStyle(startButton, stopButton, resetButton);
+        button_Style.attributeStyle(startButton, resetButton);
+        button_Style.stopStyle(stopButton);
 
         
         
