@@ -47,8 +47,7 @@ public class clockPanel extends JPanel{
    
     public void setTime()
     {
-       
-            
+
             time =  timeFormat.format(Calendar.getInstance().getTime());
             timeLabel.setText(time);
 
