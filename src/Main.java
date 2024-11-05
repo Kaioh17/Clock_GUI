@@ -13,17 +13,17 @@ public class Main extends JFrame
 
   
 public Main()
-    {
-        //Set up for main frame
+    { //Set up for main frame
         setTitle("Clock");
         setSize(550,330);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(true);
+        setResizable(false);
         setBackground(Color.BLACK);
-       
+
 
         //cardLayout for switching betwen panels
         cardLayout = new CardLayout();
+
         mainPanel = new JPanel(cardLayout);
 
         // add the classes to the main panel
@@ -71,7 +71,7 @@ public Main()
 
     public static void main(String[] args)
     {
-        //use SwingUtilities.invokeLater to ensure thred safety 
+        //use SwingUtilities.invokeLater to ensure thread safety
         SwingUtilities.invokeLater(() -> {
             Main clock = new Main();
 
