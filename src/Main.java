@@ -19,6 +19,7 @@ public Main()
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setBackground(Color.BLACK);
+//        setLayout(null);
 
 
         //cardLayout for switching betwen panels
@@ -54,7 +55,7 @@ public Main()
        
         
 
-        /**
+        /*
         Panel to set clock and calender in real time *          
         */
         JPanel clock_Panel = new JPanel();
