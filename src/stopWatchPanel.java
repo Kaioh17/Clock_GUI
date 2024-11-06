@@ -89,7 +89,7 @@ public class stopWatchPanel extends JPanel{
 
     private void updateTimeLabel() {
         int hours = (elapsedTime / 3600000) % 24;
-        int minutes = (elapsedTime / 60000) % 60;
+        int minutes = (elapsedTime / 60000) % 60    ;
         int seconds = (elapsedTime / 1000) % 60;
 
         String timeString = String.format("%02d:%02d.%02d", hours, minutes, seconds);
