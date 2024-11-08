@@ -21,12 +21,13 @@ public class stopWatchPanel extends JPanel{
     public stopWatchPanel()
     {
         setLayout(new BorderLayout());
+        setBackground(Color.black);
 
         //Initialize all component
         stopWatchLabel = new JLabel("00:00.00");
         stopWatchLabel.setFont(font_Style.ROMAN.getFont());
         stopWatchLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        stopWatchLabel.setForeground(Color.BLACK);
+        stopWatchLabel.setForeground(Color.WHITE);
        
         
 
@@ -35,6 +36,8 @@ public class stopWatchPanel extends JPanel{
         stopButton = new JButton("Stop");
         resetButton = new JButton("Reset");
 
+        //Edit button panel
+        buttonPanel.setBackground(Color.black);
         //Edit button
         button_Style.attributeStyle(startButton, resetButton);
         button_Style.stopStyle(stopButton);
