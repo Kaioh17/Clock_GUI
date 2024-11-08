@@ -8,16 +8,19 @@ import styles.*;
 public class setTimerFrame extends JFrame {
 
     private JButton startButton;
+    private JButton clearButton;
     private JPanel buttonPanel;
     private JPanel valuePanel;
     private JButton upButton;
     private JButton downButton;
     private JTextField numberField;
-    private int hour;
+    protected int hour =0;
     private int minute;
     private int second;
+    public TimerCallback callback;
 
-    public setTimerFrame() {
+    public setTimerFrame(TimerCallback callback) {
+        this.callback = callback;
         //create an ui for users to set timer
         setTitle("Set Timer");
         setSize(400, 200);
@@ -33,13 +36,26 @@ public class setTimerFrame extends JFrame {
 
         valuePanel.setSize(400, 200);
 
+        startButton = new JButton("Start");
+        buttonPanel = new JPanel();
+        buttonPanel.add(startButton);
+
+        button_Style.attributeStyle(startButton);
+        startButton.addActionListener(e -> {
+            if (callback != null) callback.onTimeSet(hour,minute,second);
+            dispose();// Close this frame
+
+        });
+
+        //add the methods to the panel
        setHourValue();
        setMinuteValue();
+       setSecondValue();
 
 
 
         add(valuePanel, BorderLayout.SOUTH);
-
+        add(buttonPanel, BorderLayout.NORTH);
     }
 
     private void setHourValue()
@@ -49,14 +65,14 @@ public class setTimerFrame extends JFrame {
         JButton downButton = new JButton("<");
 
     //Edit buttons
-        button_Style.attributeStyle(upButton,downButton);
+        button_Style.up_downStyle(upButton,downButton);
 
 
         //Assigning functions to the up & down buttons
         upButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try{
-                    if(hour <= 24) hour++;// to increment as long as hour not greater than 24
+                    if(hour <= 23) hour++;// to increment as long as hour not greater than 24
                     else hour=0;
                     numberField.setText(String.valueOf(hour));
                 }
@@ -96,8 +112,42 @@ public class setTimerFrame extends JFrame {
     private void setMinuteValue()
     {
         JButton upButton = new JButton(">");
-        JTextField numberField = new JTextField(String.valueOf(hour), 5 );
+        JTextField numberField = new JTextField(String.valueOf(minute), 5 );
         JButton downButton = new JButton("<");
+
+        //Edit buttons
+        button_Style.up_downStyle(upButton,downButton);
+
+
+        //Assigning functions to the up & down buttons
+        upButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    if(minute <= 59) minute++;// to increment as long as hour not greater than 24
+                    else minute=0;
+                    numberField.setText(String.valueOf(minute));
+                }
+                catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error updating hour" +ex.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        });
+
+        downButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try
+                {
+                    if(minute > 0)minute-- ;
+                    else minute = 0;
+                    numberField.setText(String.valueOf(minute));
+                }
+                catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error updating hour" +ex.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
 
 
         JPanel minutePanel = new JPanel();
@@ -109,6 +159,64 @@ public class setTimerFrame extends JFrame {
         minutePanel.add(downButton);
 
         valuePanel.add(minutePanel);
+    }
+
+    private void setSecondValue()
+    {
+        JButton upButton = new JButton(">");
+        JTextField numberField = new JTextField(String.valueOf(second), 5 );
+        JButton downButton = new JButton("<");
+
+        //Edit buttons
+        button_Style.up_downStyle(upButton,downButton);
+
+
+        //Assigning functions to the up & down buttons
+        upButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    if(second <= 59) second++;// to increment as long as hour not greater than 24
+                    else second=0;
+                    numberField.setText(String.valueOf(second));
+                }
+                catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error updating hour" +ex.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        });
+
+        downButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try
+                {
+                    if(second > 0)second-- ;
+                    else second = 0;
+                    numberField.setText(String.valueOf(second));
+                }
+                catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error updating hour" +ex.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+
+
+        JPanel minutePanel = new JPanel();
+        minutePanel.setBackground(Color.RED);
+        minutePanel.setLayout(new GridLayout(3,3));
+
+        minutePanel.add(upButton);
+        minutePanel.add(numberField);
+        minutePanel.add(downButton);
+
+        valuePanel.add(minutePanel);
+    }
+
+
+    //Create a call back method to send timer information to the main frame
+    public interface TimerCallback {
+        void onTimeSet(int hour,int minute,int second);
     }
 
 }
