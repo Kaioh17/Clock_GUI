@@ -18,14 +18,16 @@ public Main()
         setSize(550,330);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        setBackground(Color.BLACK);
-//        setLayout(null);
+        getContentPane().setBackground(Color.BLACK);
 
 
-        //cardLayout for switching betwen panels
+
+        //cardLayout for switching between panels
         cardLayout = new CardLayout();
 
         mainPanel = new JPanel(cardLayout);
+
+        mainPanel.setBackground(Color.BLACK);
 
         // add the classes to the main panel
         mainPanel.add(new timerPanel(), "Timer");
@@ -52,6 +54,8 @@ public Main()
         buttonPanel.add(timerButton);
         buttonPanel.add(alarmButton);
         buttonPanel.add(stopWatchButton);
+
+        buttonPanel.setBackground(Color.BLACK);
        
         
 
@@ -60,6 +64,8 @@ public Main()
         */
         JPanel clock_Panel = new JPanel();
        clock_Panel.add(new clockPanel());
+
+       clock_Panel.setBackground(Color.BLACK);
 
         //Add panels to the main frame
         add(buttonPanel,BorderLayout.SOUTH);
