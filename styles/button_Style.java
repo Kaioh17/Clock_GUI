@@ -40,9 +40,20 @@ public class button_Style {
             button.setFont(font_Style.roman.getFont());
         }
     }
+    public static void up_downStyle(JButton... buttons)
+    {
+        for(JButton button : buttons)
+        {
+            button.setBackground(Color.RED);
+            button.setForeground(Color.WHITE);
+            button.setFont(font_Style.roman.getFont());
+        }
+    }
 
 
 
 
-    
+
+
+
 }
