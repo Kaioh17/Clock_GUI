@@ -22,15 +22,18 @@ public class clockPanel extends JPanel{
      */
     public clockPanel()
     {
-        
+        setBackground(Color.BLACK);
         timeFormat = new SimpleDateFormat("hh:mm:ss a  ");
         dayFormat = new SimpleDateFormat(" MMMMM dd, yyyy");
 
 
         timeLabel = new JLabel();
         timeLabel.setFont(font_Style.roman.getFont());
+        timeLabel.setForeground(Color.WHITE);
+
         dayLabel = new JLabel();
         dayLabel.setFont(font_Style.roman.getFont());
+        dayLabel.setForeground(Color.WHITE);
         
 
         
@@ -50,6 +53,7 @@ public class clockPanel extends JPanel{
 
             time =  timeFormat.format(Calendar.getInstance().getTime());
             timeLabel.setText(time);
+
 
             day = dayFormat.format(Calendar.getInstance().getTime());
             dayLabel.setText(day);
