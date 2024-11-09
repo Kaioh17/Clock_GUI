@@ -42,7 +42,7 @@ public class timerPanel extends JPanel implements setTimerFrame.TimerCallback {
          buttonPanel = new JPanel();
          setButton = new JButton("Set");//set will prompt a new frame to set timer
          pauseButton = new JButton("Paused");
-        startorResetButton = new JButton("Start");
+         startorResetButton = new JButton("Start");
        
 
 
