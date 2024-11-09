@@ -7,10 +7,8 @@ import styles.*;
 
 public class setTimerFrame extends JFrame {
 
-    private JButton startButton;
     private JButton clearButton;
-    private JPanel buttonPanel;
-    private JPanel valuePanel;
+    private final JPanel valuePanel;
     private JButton upButton;
     private JButton downButton;
     private JTextField numberField;
@@ -26,18 +24,20 @@ public class setTimerFrame extends JFrame {
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
-        setBackground(Color.BLACK);
-        setLayout(new FlowLayout());
+        getContentPane().setBackground(Color.BLACK);
+        setLayout(new GridLayout(2,1));
 
         //create a panel to contain the
         valuePanel = new JPanel();
         valuePanel.setBackground(Color.BLACK);
         valuePanel.setLayout(new GridLayout(1,3, 10,5));
+//        valuePanel.setLayout(new FlowLayout());
+        valuePanel.setPreferredSize(new Dimension(200, 50));
 
         valuePanel.setSize(400, 200);
 
-        startButton = new JButton("Start");
-        buttonPanel = new JPanel();
+        JButton startButton = new JButton("Start");
+        JPanel buttonPanel = new JPanel();
         buttonPanel.add(startButton);
 
         button_Style.attributeStyle(startButton);
