@@ -49,6 +49,44 @@ public Main()
         alarmButton.addActionListener(e -> cardLayout.show(mainPanel, "Alarm"));
         stopWatchButton.addActionListener(e -> cardLayout.show(mainPanel, "Stop Watch"));
 
+
+        timerButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timerButton.setForeground(new Color(183, 85, 0));
+                alarmButton.setForeground(Color.lightGray);
+                stopWatchButton.setForeground(Color.lightGray);
+            }
+        });
+
+       // Action listeners for timerButton, alarmButton, and stopWatchButton.
+        // When a button is clicked, it changes its text color to a specific color (dark orange),
+        // while setting the text color of the other two buttons to light gray, indicating
+        // which mode is currently active (Timer, Alarm, or Stopwatch). This provides
+        // a visual cue to the user about which functionality is selected.
+
+        alarmButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                alarmButton.setForeground(new Color(183, 85, 0));
+                timerButton.setForeground(Color.lightGray);
+                stopWatchButton.setForeground(Color.lightGray);
+            }
+        });
+
+        stopWatchButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                alarmButton.setForeground(Color.lightGray);
+                timerButton.setForeground(Color.lightGray);
+                stopWatchButton.setForeground(new Color(183, 85, 0));
+
+
+            }
+        });
         //A panel for the buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(timerButton);
