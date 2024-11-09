@@ -35,7 +35,7 @@ public class button_Style {
         for(JButton button : buttons)
         {
         button.setBackground(new Color(183, 85, 0));
-            button.setForeground(Color.WHITE);
+            button.setForeground(Color.green);
             button.setFont(font_Style.sansSerif.getFont());
             button.setFocusable(false);
             button.setPreferredSize(new Dimension(100, 50));
