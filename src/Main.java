@@ -1,10 +1,10 @@
 package src;
 
 import java.awt.*;
+import src.panels.*;
 import styles.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 public class Main extends JFrame 
 {
