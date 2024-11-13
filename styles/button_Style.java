@@ -34,7 +34,7 @@ public class button_Style {
     {
         for(JButton button : buttons)
         {
-        button.setBackground(new Color(183, 85, 0));
+            button.setBackground(new Color(0, 100, 0));
             button.setForeground(Color.green);
             button.setFont(font_Style.sansSerif.getFont());
             button.setFocusable(false);
@@ -46,14 +46,17 @@ public class button_Style {
 
             //Add mouse listeners for button effect
             button.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                   button.setForeground(Color.LIGHT_GRAY );
-                }
+//                @Override
+//                public void mouseEntered(MouseEvent e) {
+//                   button.setForeground(new Color(0, 100, 0, 0) );
+////                    button.setBackground(new Color(0, 100, 0, 128));
+////                   button.setOpaque(false);
+//                }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    button.setForeground(Color.WHITE);
+                    button.setForeground(Color.green);
+                    button.setBackground(new Color(0, 100, 0));
                 }
             });
 
@@ -64,8 +67,8 @@ public class button_Style {
     {
         for(JButton button : buttons)
         {
-            button.setBackground(Color.RED); 
-            button.setForeground(Color.WHITE);
+            button.setBackground(Color.DARK_GRAY);
+            button.setForeground(Color.GRAY);
             button.setFont(font_Style.sansSerif.getFont());
             button.setFocusable(false);
             button.setPreferredSize(new Dimension(150, 50));
