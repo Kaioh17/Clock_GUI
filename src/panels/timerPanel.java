@@ -5,6 +5,7 @@ import javax.sound.sampled.*;
 import java.io.*;
 import javax.swing.*;
 
+import src.setFrames.setTimerFrame;
 import styles.*;
 
 
