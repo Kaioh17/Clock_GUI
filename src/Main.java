@@ -17,7 +17,7 @@ public Main()
         setTitle("Clock");
         setSize(550,330);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        setResizable(true);
         getContentPane().setBackground(Color.BLACK);
 
 
@@ -34,10 +34,15 @@ public Main()
         mainPanel.add(new alarmPanel(), "Alarm");
         mainPanel.add(new stopWatchPanel(), "Stop Watch");
 
+        //Icon test
+//        ImageIcon timerIcon = new ImageIcon("/sounds/timer.png");
+
         //create buttons
         JButton timerButton = new JButton("Timer");
         JButton alarmButton = new JButton("Alarm");
         JButton stopWatchButton = new JButton("Stop Watch");
+
+//        timerButton.setIcon(timerIcon);
 
         //edit the button
         button_Style.mainStyle(timerButton, alarmButton,  stopWatchButton);
@@ -49,6 +54,11 @@ public Main()
         alarmButton.addActionListener(e -> cardLayout.show(mainPanel, "Alarm"));
         stopWatchButton.addActionListener(e -> cardLayout.show(mainPanel, "Stop Watch"));
 
+        // Action listeners for timerButton, alarmButton, and stopWatchButton.
+        // When a button is clicked, it changes its text color to a specific color (dark orange),
+        // while setting the text color of the other two buttons to light gray, indicating
+        // which mode is currently active (Timer, Alarm, or Stopwatch). This provides
+        // a visual cue to the user about which functionality is selected.
 
         timerButton.addActionListener(new ActionListener() {
 
@@ -60,11 +70,6 @@ public Main()
             }
         });
 
-       // Action listeners for timerButton, alarmButton, and stopWatchButton.
-        // When a button is clicked, it changes its text color to a specific color (dark orange),
-        // while setting the text color of the other two buttons to light gray, indicating
-        // which mode is currently active (Timer, Alarm, or Stopwatch). This provides
-        // a visual cue to the user about which functionality is selected.
 
         alarmButton.addActionListener(new ActionListener() {
 
