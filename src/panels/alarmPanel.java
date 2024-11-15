@@ -5,17 +5,13 @@ import java.awt.*;
 
 public class alarmPanel  extends JPanel{
 
+    private JPanel alarmSlot;
+
     public alarmPanel()
     {
-       
+       setBackground(Color.BLACK);
 
-           setLayout(new BorderLayout());
-           JLabel label = new JLabel("Alarm functionality goes here!", SwingConstants.CENTER);
-           label.setFont(new Font("Arial", Font.PLAIN, 24));
-              add(label, BorderLayout.CENTER);
 
-              System.out.println("Alarm");
-   
     }
     
 
