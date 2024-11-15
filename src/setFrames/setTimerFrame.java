@@ -36,7 +36,7 @@ public class setTimerFrame extends JFrame {
 
         valuePanel.setSize(400, 20);
 
-        JButton startButton = new JButton("Start");
+        JButton startButton = new JButton("Set Alarm");
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(startButton);
 
