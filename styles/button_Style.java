@@ -7,6 +7,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.RoundRectangle2D;
 
 
 public class button_Style {
@@ -29,19 +30,20 @@ public class button_Style {
 
         }
     }
-
+    //Button style for most buttons
     public static void attributeStyle(JButton... buttons)
     {
         for(JButton button : buttons)
         {
-            button.setBackground(new Color(0, 100, 0));
+            button.setBackground(new Color(0, 101, 3));
             button.setForeground(Color.green);
             button.setFont(font_Style.sansSerif.getFont());
             button.setFocusable(false);
-            button.setPreferredSize(new Dimension(100, 50));
+            button.setPreferredSize(new Dimension(150, 50));
             button.setBorderPainted(false);
             button.setContentAreaFilled(false); // Remove the default button area fill
             button.setOpaque(true);
+
 
 
             //Add mouse listeners for button effect
@@ -55,14 +57,14 @@ public class button_Style {
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    button.setForeground(Color.green);
-                    button.setBackground(new Color(0, 100, 0));
+                    button.setForeground(Color.green);//reset font color
+                    button.setBackground(new Color(0, 100, 0));//reset background color
                 }
             });
 
         }
     }
-
+    //Stop Button Style
     public static void stopStyle(JButton... buttons)
     {
         for(JButton button : buttons)
@@ -78,6 +80,23 @@ public class button_Style {
 
         }
     }
+    //resume button style
+    public static void resumeStyle(JButton... buttons)
+    {
+        for(JButton button : buttons)
+        {
+            button.setForeground(new Color(255, 135, 0));
+            button.setBackground(new Color(255, 77,0, 245));
+            button.setFont(font_Style.sansSerif.getFont());
+            button.setFocusable(false);
+            button.setPreferredSize(new Dimension(150, 50));
+            button.setBorderPainted(false);
+            button.setContentAreaFilled(false); // Remove the default button area fill
+            button.setOpaque(true);
+
+        }
+    }
+    //UP and Down button style
     public static void up_downStyle(JButton... buttons)
     {
         for(JButton button : buttons)
@@ -89,6 +108,14 @@ public class button_Style {
             button.setPreferredSize(new Dimension(50, 50));
         }
     }
+
+//    @Override
+//    protected void paintComponent(int x,int y,int w, int h)
+//    {
+//        Graphics g = null;
+//        RoundRectangle2D roundedRectangle = new RoundRectangle2D.Float(x, y, w, h, 10, 10);
+//        g.fill(roundedRectangle);
+//    }
 
 
 
