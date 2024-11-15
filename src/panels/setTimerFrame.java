@@ -34,7 +34,7 @@ public class setTimerFrame extends JFrame {
 //        valuePanel.setLayout(new FlowLayout());
         valuePanel.setPreferredSize(new Dimension(200, 50));
 
-        valuePanel.setSize(400, 200);
+        valuePanel.setSize(400, 20);
 
         JButton startButton = new JButton("Start");
         JPanel buttonPanel = new JPanel();
@@ -51,8 +51,6 @@ public class setTimerFrame extends JFrame {
        setHourValue();
        setMinuteValue();
        setSecondValue();
-
-
 
         add(valuePanel, BorderLayout.SOUTH);
         add(buttonPanel, BorderLayout.NORTH);
