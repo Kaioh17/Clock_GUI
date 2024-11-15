@@ -141,9 +141,15 @@ public class timerPanel extends JPanel implements setTimerFrame.TimerCallback {
     private void pauseTimer() {
         isPaused= !isPaused;
 
-        if(isPaused) pauseButton.setText("Resume");
-        else pauseButton.setText("Paused");
+        if(isPaused) {
+            pauseButton.setText("Resume");
+            button_Style.resumeStyle(pauseButton);
+        }
 
+        else {
+            pauseButton.setText("Paused");
+            button_Style.stopStyle(pauseButton);
+        }
     }
 
     //reset timer
