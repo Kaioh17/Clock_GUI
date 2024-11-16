@@ -82,8 +82,8 @@ public Main()
         stopWatchButton.addActionListener(e -> cardLayout.show(mainPanel, "Stop Watch"));
 
         // Action listeners for timerButton, alarmButton, and stopWatchButton.
-        // When a button is clicked, it changes its text color to a specific color (dark orange),
-        // while setting the text color of the other two buttons to light gray, indicating
+        // When a button is clicked, it changes its icon color to a specific color (dark orange),
+        // while setting the icon color of the other two buttons to light gray, indicating
         // which mode is currently active (Timer, Alarm, or Stopwatch). This provides
         // a visual cue to the user about which functionality is selected.
 
