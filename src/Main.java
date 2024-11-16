@@ -34,15 +34,18 @@ public Main()
         mainPanel.add(new alarmPanel(), "Alarm");
         mainPanel.add(new stopWatchPanel(), "Stop Watch");
 
-        //Icon test
-//        ImageIcon timerIcon = new ImageIcon("/sounds/timer.png");
+//        //Icon test
+//        ImageIcon timerIcon = new ImageIcon("src/Sounds/timer22.png");
+//        // Resize icon if necessary
+//        Image scaledImage = timerIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+//        ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         //create buttons
         JButton timerButton = new JButton("Timer");
         JButton alarmButton = new JButton("Alarm");
         JButton stopWatchButton = new JButton("Stop Watch");
 
-//        timerButton.setIcon(timerIcon);
+
 
         //edit the button
         button_Style.mainStyle(timerButton, alarmButton,  stopWatchButton);
