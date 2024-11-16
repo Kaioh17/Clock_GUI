@@ -54,12 +54,12 @@ public class button_Style {
 ////                    button.setBackground(new Color(0, 100, 0, 128));
 ////                   button.setOpaque(false);
 //                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    button.setForeground(Color.green);//reset font color
-                    button.setBackground(new Color(0, 100, 0));//reset background color
-                }
+//
+//                @Override
+//                public void mouseExited(MouseEvent e) {
+//                    button.setForeground(Color.green);//reset font color
+//                    button.setBackground(new Color(0, 100, 0));//reset background color
+//                }
             });
 
         }
