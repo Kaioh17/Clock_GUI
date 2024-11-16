@@ -18,7 +18,7 @@ public class font_Style  {
     public static final font_Style ROMAN = new font_Style("Times New Roman",Font.PLAIN,55);
     public static final font_Style roman = new font_Style("Times New Roman",Font.PLAIN,18);
     public static final font_Style ROMANII = new font_Style("Malgun Gothic",Font.PLAIN,35);
-    public static final font_Style sansSerif = new font_Style("SansSerif",Font.PLAIN,20);
+    public static final font_Style sansSerif = new font_Style("SansSerif",Font.BOLD,20);
 
     
     public font_Style(String fontName, int style,int size)
