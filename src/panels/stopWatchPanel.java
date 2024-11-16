@@ -25,7 +25,7 @@ public class stopWatchPanel extends JPanel{
 
         //Initialize all component
         stopWatchLabel = new JLabel("00:00.00");
-        stopWatchLabel.setFont(font_Style.ROMAN.getFont());
+        stopWatchLabel.setFont(font_Style.serif.getFont());
         stopWatchLabel.setHorizontalAlignment(SwingConstants.CENTER);
         stopWatchLabel.setForeground(Color.WHITE);
        
