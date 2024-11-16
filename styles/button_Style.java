@@ -17,15 +17,16 @@ public class button_Style {
     {
         for(JButton button : buttons )
         {
-            button.setBackground(Color.BLACK);
+            button.setBackground(Color.WHITE);
             button.setForeground(Color.LIGHT_GRAY);
             button.setFont(font_Style.roman.getFont());
+
             button.setFocusable(false);
             // button.setBorder(null);
-            button.setSize(150, 10);
+            button.setPreferredSize(new Dimension(110,48));
             button.setBorderPainted(false);
             button.setContentAreaFilled(false); // Remove the default button area fill
-            button.setOpaque(true);
+            button.setOpaque(false);
 
 
         }
