@@ -34,7 +34,7 @@ public class timerPanel extends JPanel implements setTimerFrame.TimerCallback {
 
          //timer label   (00:00:00)
          timerLabel = new JLabel(formatTime(hours, minutes, seconds));
-         timerLabel.setFont(font_Style.ROMAN.getFont());
+         timerLabel.setFont(font_Style.serif.getFont());
          timerLabel.setHorizontalAlignment(SwingConstants.CENTER);
          timerLabel.setForeground(Color.WHITE);
 
