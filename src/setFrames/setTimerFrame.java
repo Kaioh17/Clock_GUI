@@ -59,7 +59,7 @@ public class setTimerFrame extends JFrame {
     private void setHourValue()
     {
         JButton upButton = new JButton(">");
-        JTextField numberField = new JTextField(String.valueOf(hour), 5 );
+        JTextField numberField = new JTextField(String.valueOf(hour), 3 );
         JButton downButton = new JButton("<");
 
     //Edit buttons
