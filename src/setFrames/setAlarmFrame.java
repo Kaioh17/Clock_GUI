@@ -34,10 +34,7 @@ public class setAlarmFrame extends JFrame {
         setTimePanel.add(downIcon());
 
 
-        File file = new File("Clock_Gui/src/Sounds/upIcon.png");
 
-        System.out.println("File exists: " + file.exists());
-        System.out.println("Absolute path: " + file.getAbsolutePath());
 
         add(setTimePanel, BorderLayout.CENTER);
 
