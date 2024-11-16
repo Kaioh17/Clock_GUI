@@ -17,9 +17,15 @@ public class alarmPanel  extends JPanel{
 
         //button to set alarm
        setAlarmButton = new JButton("+");
+
+
+       //Edit set button
         button_Style.attributeStyle(setAlarmButton);//set button style
+        setAlarmButton.setFont(font_Style.roman.getFont());
+        setAlarmButton.setForeground(new Color(255, 135, 0));
         setAlarmButton.setPreferredSize(new Dimension(55, 45));//override attribute style method to set new height
-        setAlarmButton.setOpaque(true);
+        setAlarmButton.setOpaque(false);
+
 
         //Add action listener to buttons
         setAlarmButton.addActionListener(e -> openSetAlarmFrame() );
