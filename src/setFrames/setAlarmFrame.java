@@ -4,15 +4,18 @@ import styles.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.io.File;
 
 public class setAlarmFrame extends JFrame {
-
+    private JPanel setTimePanel;
     public setAlarmFrame() {
         setTitle("Set Alarm");
         getContentPane().setBackground(new Color(106, 106, 106));
         setSize(400, 400);
-        setLayout(new FlowLayout());
+        setLayout(null);
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -23,37 +26,199 @@ public class setAlarmFrame extends JFrame {
     private void setTime()
     {
         //Create a panel to set time
-        JPanel setTimePanel = new JPanel();
+        setTimePanel = new JPanel();
         setTimePanel.setBackground(new Color(138, 137, 137));
-        setTimePanel.setLayout(new FlowLayout());
+        setTimePanel.setLayout(null);
 //        setTimePanel.setBounds(0, 0, 400, 400);
-        setTimePanel.setPreferredSize(new Dimension(300, 140));
-
-        setTimePanel.add(upIcon());
-        setTimePanel.add(timeField());
-        setTimePanel.add(downIcon());
+//        setTimePanel.setPreferredSize(new Dimension(300, 140));
+        setTimePanel.setBounds(0, 0, 400, 140);
 
 
+        setHour();
+        setMinute();
+        setAmPm();
 
 
         add(setTimePanel, BorderLayout.CENTER);
 
     }
 
-    public JLabel upIcon() {
+    private void setAmPm() {
+        JPanel setAmPm = new JPanel();
+        setAmPm.setBackground(new Color(122, 100, 100));
+        setAmPm.setBounds(120, 24, 50, 100);
+        setAmPm.setLayout(new GridLayout(3,1));
+        setAmPm.setOpaque(false);
+        JPanel AmPmPanel = new JPanel();
+
+        //Text field panel
+        AmPmPanel.setLayout(new FlowLayout());
+        AmPmPanel.setBackground(new Color(244, 54, 54));
+        AmPmPanel.setOpaque(false);
+
+        JTextField AmPmField = new JTextField("AM", 2);
+
+        //Edit text field
+        AmPmField.setOpaque(false);
+        AmPmField.setFont(font_Style.sansSerif.getFont());
+        AmPmField.setBorder(null);
+        AmPmField.setHorizontalAlignment(JTextField.CENTER);
+        AmPmField.setFocusable(false);
+        AmPmField.setPreferredSize(new Dimension(20, 22));
+        AmPmField.setEditable(false);
+        AmPmPanel.add(AmPmField);
+
+        //set new objects for the icon methods
+        JLabel upAmPmIcon = upIcon();
+        JLabel downAmPmIcon = downIcon();
+
+
+        upAmPmIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(AmPmField.getText().equals("AM")) AmPmField.setText("PM");
+                else AmPmField.setText("AM");
+            }
+        });
+
+        downAmPmIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(AmPmField.getText().equals("PM")) AmPmField.setText("AM");
+                else AmPmField.setText("PM");
+            }
+        });
+
+        setAmPm.add(upAmPmIcon);
+        setAmPm.add(AmPmPanel);
+        setAmPm.add(downAmPmIcon);
+        setTimePanel.add(setAmPm);
+    }
+
+    private void setHour()
+    {
+        JPanel setHourPanel = new JPanel();
+        setHourPanel.setBackground(new Color(122, 100, 100));
+        setHourPanel.setBounds(40, 24, 50, 100);
+        setHourPanel.setLayout(new GridLayout(3,1));
+        setHourPanel.setOpaque(false);JPanel timeFieldPanel = new JPanel();
+
+        //Text field panel
+        timeFieldPanel.setLayout(new FlowLayout());
+        timeFieldPanel.setBackground(new Color(244, 54, 54));
+        timeFieldPanel.setOpaque(false);
+
+        JTextField hourField = new JTextField("12", 2);
+
+        //Edit text field
+        hourField.setOpaque(false);
+        hourField.setFont(font_Style.sansSerif.getFont());
+        hourField.setBorder(null);
+        hourField.setHorizontalAlignment(JTextField.CENTER);
+        hourField.setFocusable(false);
+        hourField.setPreferredSize(new Dimension(20, 22));
+        hourField.setEditable(false);
+        timeFieldPanel.add(hourField);
+
+        //set new objects for the icon methods
+        JLabel upHourIcon = upIcon();
+        JLabel downHourIcon = downIcon();
+
+
+        upHourIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                incrementTime(hourField, 12);
+            }
+
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+               incrementTime(hourField, 12);
+            }
+        });
+
+        downHourIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                decrementTime(hourField, 1);
+            }
+        });
+
+        setHourPanel.add(upHourIcon);
+       setHourPanel.add(timeFieldPanel);
+        setHourPanel.add(downHourIcon);
+        setTimePanel.add(setHourPanel);
+    }
+
+
+
+    private void setMinute()
+    {
+        JPanel setMinutePanel = new JPanel();
+        setMinutePanel.setBackground(new Color(122, 100, 100));
+        setMinutePanel.setBounds(80, 24, 50, 100);
+        setMinutePanel.setLayout(new GridLayout(3,1));
+        setMinutePanel.setOpaque(false);JPanel timeFieldPanel = new JPanel();
+
+        //Text field panel
+        timeFieldPanel.setLayout(new FlowLayout());
+        timeFieldPanel.setBackground(new Color(244, 54, 54));
+        timeFieldPanel.setOpaque(false);
+
+        JTextField minuteField = new JTextField("59", 2);
+
+        //Edit text field
+        minuteField.setOpaque(false);
+        minuteField.setFont(font_Style.sansSerif.getFont());
+        minuteField.setBorder(null);
+        minuteField.setHorizontalAlignment(JTextField.CENTER);
+        minuteField.setFocusable(false);
+        minuteField.setPreferredSize(new Dimension(20, 22));
+        minuteField.setEditable(false);
+        timeFieldPanel.add(minuteField);
+
+        //set new objects for the icon methods
+        JLabel upMinuteIcon = upIcon();
+        JLabel downMinuteIcon = downIcon();
+
+
+        upMinuteIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                incrementTime(minuteField, 59);
+            }
+        });
+
+        downMinuteIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                decrementTime(minuteField, 1);
+            }
+        });
+
+        setMinutePanel.add(upMinuteIcon);
+        setMinutePanel.add(timeFieldPanel);
+        setMinutePanel.add(downMinuteIcon);
+        setTimePanel.add(setMinutePanel);
+    }
+
+    private JLabel upIcon() {
 //        JPanel upIconPanel = new JPanel();
-        ImageIcon upIcon = new ImageIcon("Clock_Gui/src/Sounds/upIcon.png");
-        Image scaledImage = upIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon upIcon = new ImageIcon("Clock_Gui/src/Import/upIcon.png");
+        Image scaledImage = upIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         JLabel upIconLabel = new JLabel(scaledIcon);
+        upIconLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        upIconLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 
         return upIconLabel;
     }
 
+
     public JLabel downIcon() {
-        ImageIcon upIcon = new ImageIcon("Clock_Gui/src/Sounds/downIcon.png");
-        Image scaledImage = upIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        ImageIcon upIcon = new ImageIcon("Clock_Gui/src/Import/down.png");
+        Image scaledImage = upIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         JLabel downIconLabel = new JLabel(scaledIcon);
@@ -61,10 +226,17 @@ public class setAlarmFrame extends JFrame {
         return downIconLabel;
     }
 
-    public JTextField timeField()
-    {
-        JTextField timeField = new JTextField(3);
-        return timeField;
+    //Method to values time by 1
+    private void incrementTime(JTextField field, int max) {
+        int currentTime = Integer.parseInt(field.getText());
+        if(currentTime < max) field.setText(String.format("%02d", currentTime + 1));
+        else field.setText("01");
     }
 
+    //Method to Decrement values by 1
+    private void decrementTime(JTextField field, int min) {
+        int currentTime = Integer.parseInt(field.getText());
+        if(currentTime > min) field.setText(String.format("%02d", currentTime - 1));
+        else field.setText("12");
+    }
 }
