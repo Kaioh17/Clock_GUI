@@ -15,15 +15,19 @@ public class alarmPanel  extends JPanel{
     {
        setBackground(Color.BLACK);
 
+       //Add image icon
+       ImageIcon addIcon = new ImageIcon("Clock_Gui/src/Import/add.png");
+        Image scaledImage = addIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
         //button to set alarm
-       setAlarmButton = new JButton("+");
+       setAlarmButton = new JButton();
+       setAlarmButton.setIcon(scaledIcon);
+
 
 
        //Edit set button
-        button_Style.attributeStyle(setAlarmButton);//set button style
-        setAlarmButton.setFont(font_Style.roman.getFont());
-        setAlarmButton.setForeground(new Color(255, 135, 0));
-        setAlarmButton.setPreferredSize(new Dimension(55, 45));//override attribute style method to set new height
+        button_Style.attributeStyle(setAlarmButton);
         setAlarmButton.setOpaque(false);
 
 
