@@ -34,25 +34,25 @@ public Main()
         mainPanel.add(new stopWatchPanel(), "Stop Watch");
 
         //Add icon to buttons(timer)
-        ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Sounds/timerIconW.png");
+        ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Import/timerIconW.png");
         // Resize icon if necessary
         Image scaledImage = timerIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         //Add icon to buttons(stopwatch)
-        ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Sounds/stopWatchIconW.png");
+        ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Import/stopWatchIconW.png");
         // Resize icon if necessary
         Image scaledImage2 = stopWatchIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         ImageIcon stopwatchScaledIcon = new ImageIcon(scaledImage2);
 
         //Add icon to buttons(alarm)
-        ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Sounds/alarmIconW.png");
+        ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Import/alarmIconW.png");
         // Resize icon if necessary
         Image alarmScaledImage = alarmIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         ImageIcon alarmScaledIcon = new ImageIcon(alarmScaledImage);
 
         //Check if file exists
-        File file = new File("Clock_Gui/src/Sounds/stopwatch.png");
+        File file = new File("Clock_Gui/src/Import/stopwatch.png");
 
         System.out.println("File exists: " + file.exists());
         System.out.println("Absolute path: " + file.getAbsolutePath());
@@ -94,7 +94,7 @@ public Main()
 
 
                 //Change icon image
-                ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Sounds/timerIconOrange.png");
+                ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Import/timerIconOrange.png");
               // Resize icon if necessary
                 Image scaledImage = timerIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -102,14 +102,14 @@ public Main()
                 timerButton.setIcon(scaledIcon);
 
                 //Add icon to buttons
-                ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Sounds/stopWatchIconW.png");
+                ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Import/stopWatchIconW.png");
                 // Resize icon if necessary
                 Image scaledImage2 = stopWatchIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
                 ImageIcon stopwatchScaledIcon = new ImageIcon(scaledImage2);
 
                 stopWatchButton.setIcon(stopwatchScaledIcon);
 
-                ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Sounds/alarmIconW.png");
+                ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Import/alarmIconW.png");
                 // Resize icon if necessary
                 Image alarmScaledImage = alarmIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 ImageIcon alarmScaledIcon = new ImageIcon(alarmScaledImage);
@@ -125,7 +125,7 @@ public Main()
             public void actionPerformed(ActionEvent e) {
 
                 //Change icon image
-                ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Sounds/timerIconW.png");
+                ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Import/timerIconW.png");
                 // Resize icon if necessary
                 Image scaledImage = timerIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -133,14 +133,14 @@ public Main()
                 timerButton.setIcon(scaledIcon);
 
                 //Add icon to buttons
-                ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Sounds/stopWatchIconW.png");
+                ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Import/stopWatchIconW.png");
                 // Resize icon if necessary
                 Image scaledImage2 = stopWatchIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
                 ImageIcon stopwatchScaledIcon = new ImageIcon(scaledImage2);
 
                 stopWatchButton.setIcon(stopwatchScaledIcon);
 
-                ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Sounds/alarmIconOrange.png");
+                ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Import/alarmIconOrange.png");
                 // Resize icon if necessary
                 Image alarmScaledImage = alarmIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 ImageIcon alarmScaledIcon = new ImageIcon(alarmScaledImage);
@@ -155,7 +155,7 @@ public Main()
             public void actionPerformed(ActionEvent e) {
 
                 //Change icon image
-                ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Sounds/timerIconW.png");
+                ImageIcon timerIcon = new ImageIcon("Clock_Gui/src/Import/timerIconW.png");
                 // Resize icon if necessary
                 Image scaledImage = timerIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -163,14 +163,14 @@ public Main()
                 timerButton.setIcon(scaledIcon);
 
                 //Add icon to buttons
-                ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Sounds/stopWatchOrange.png");
+                ImageIcon stopWatchIcon = new ImageIcon("Clock_Gui/src/Import/stopWatchOrange.png");
                 // Resize icon if necessary
                 Image scaledImage2 = stopWatchIcon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
                 ImageIcon stopwatchScaledIcon = new ImageIcon(scaledImage2);
 
                 stopWatchButton.setIcon(stopwatchScaledIcon);
 
-                ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Sounds/alarmIconW.png");
+                ImageIcon alarmIcon = new ImageIcon("Clock_Gui/src/Import/alarmIconW.png");
                 // Resize icon if necessary
                 Image alarmScaledImage = alarmIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 ImageIcon alarmScaledIcon = new ImageIcon(alarmScaledImage);
