@@ -127,7 +127,7 @@ public class timerPanel extends JPanel implements setTimerFrame.TimerCallback {
         try {
             // Use a short beep sound
             Clip clip = AudioSystem.getClip();
-            InputStream audioSrc = getClass().getResourceAsStream("/src/Sounds/bark.wav");
+            InputStream audioSrc = getClass().getResourceAsStream("/src/Import/bark.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(audioSrc));
             clip.open(audioStream);
             clip.start();
