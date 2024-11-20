@@ -4,9 +4,7 @@ import styles.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
+import java.awt.event.*;
 import java.io.File;
 
 public class setAlarmFrame extends JFrame {
@@ -21,6 +19,8 @@ public class setAlarmFrame extends JFrame {
 
 
         setTime();
+        setSaveButton();
+        setCancelButton();
     }
 
     private void setTime()
@@ -29,8 +29,6 @@ public class setAlarmFrame extends JFrame {
         setTimePanel = new JPanel();
         setTimePanel.setBackground(new Color(138, 137, 137));
         setTimePanel.setLayout(null);
-//        setTimePanel.setBounds(0, 0, 400, 400);
-//        setTimePanel.setPreferredSize(new Dimension(300, 140));
         setTimePanel.setBounds(0, 0, 400, 140);
 
 
@@ -42,7 +40,7 @@ public class setAlarmFrame extends JFrame {
         add(setTimePanel, BorderLayout.CENTER);
 
     }
-
+    //Method to set Am or Pm
     private void setAmPm() {
         JPanel setAmPm = new JPanel();
         setAmPm.setBackground(new Color(122, 100, 100));
@@ -95,8 +93,8 @@ public class setAlarmFrame extends JFrame {
         setTimePanel.add(setAmPm);
     }
 
-    private void setHour()
-    {
+    //Method to set Hour value
+    private void setHour() {
         JPanel setHourPanel = new JPanel();
         setHourPanel.setBackground(new Color(122, 100, 100));
         setHourPanel.setBounds(40, 24, 50, 100);
@@ -150,10 +148,8 @@ public class setAlarmFrame extends JFrame {
         setTimePanel.add(setHourPanel);
     }
 
-
-
-    private void setMinute()
-    {
+    //Method to set minute value
+    private void setMinute() {
         JPanel setMinutePanel = new JPanel();
         setMinutePanel.setBackground(new Color(122, 100, 100));
         setMinutePanel.setBounds(80, 24, 50, 100);
@@ -202,8 +198,55 @@ public class setAlarmFrame extends JFrame {
         setTimePanel.add(setMinutePanel);
     }
 
+    //Method to set days of the week
+    private void setDaysPanel() {
+        
+    }
+
+    //A cancel method to dispose the frame on click
+    private void setCancelButton() {
+        JButton cancelButton = new JButton("Cancel");
+
+        //Button style
+        button_Style.stopStyle(cancelButton);
+        cancelButton.setBounds(40, 300, 150, 50);
+
+        //Add action listeners
+        cancelButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        add(cancelButton);
+    }
+
+    //Create save Button method to save Button
+    private void setSaveButton() {
+        JButton saveButton = new JButton("Save");
+
+        //Button style
+        button_Style.attributeStyle(saveButton);
+        saveButton.setBounds(200, 300, 150, 50);
+
+        //Add action listener
+        saveButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                saveAlarm();
+            }
+        });
+
+        add(saveButton);
+    }
+
+    //save alarm method (implementing the right functions
+    private void saveAlarm() {
+
+    }
+
+    //Method for up icon label
     private JLabel upIcon() {
-//        JPanel upIconPanel = new JPanel();
+
         ImageIcon upIcon = new ImageIcon("Clock_Gui/src/Import/upIcon.png");
         Image scaledImage = upIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -215,7 +258,7 @@ public class setAlarmFrame extends JFrame {
         return upIconLabel;
     }
 
-
+    //Method for down icon label
     public JLabel downIcon() {
         ImageIcon upIcon = new ImageIcon("Clock_Gui/src/Import/down.png");
         Image scaledImage = upIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
