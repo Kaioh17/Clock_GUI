@@ -47,21 +47,6 @@ public class button_Style {
 
 
 
-            //Add mouse listeners for button effect
-            button.addMouseListener(new MouseAdapter() {
-//                @Override
-//                public void mouseEntered(MouseEvent e) {
-//                   button.setForeground(new Color(0, 100, 0, 0) );
-////                    button.setBackground(new Color(0, 100, 0, 128));
-////                   button.setOpaque(false);
-//                }
-//
-//                @Override
-//                public void mouseExited(MouseEvent e) {
-//                    button.setForeground(Color.green);//reset font color
-//                    button.setBackground(new Color(0, 100, 0));//reset background color
-//                }
-            });
 
         }
     }
