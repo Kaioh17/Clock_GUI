@@ -9,16 +9,19 @@ import java.io.File;
 
 public class setAlarmFrame extends JFrame {
     private JPanel setTimePanel;
+    private JFrame setDaysFrame;
     public setAlarmFrame() {
         setTitle("Set Alarm");
         getContentPane().setBackground(new Color(106, 106, 106));
-        setSize(400, 400);
+//        setSize(400, 400);
+        setBounds(200, 200, 400, 400);
         setLayout(null);
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
         setTime();
+        setDays();
         setSaveButton();
         setCancelButton();
     }
@@ -40,6 +43,55 @@ public class setAlarmFrame extends JFrame {
         add(setTimePanel, BorderLayout.CENTER);
 
     }
+    private void setDays() {
+        JPanel setDayButtonPanel = new JPanel();
+        JButton setDayButton = new JButton("Set Day");
+
+        button_Style.stopStyle(setDayButton);
+
+        setDayButtonPanel.setLayout(null);
+        setDayButtonPanel.setBackground(new Color(138, 137, 137));
+        setDayButtonPanel.setBounds(0, 150, 400, 50);
+
+        setDayButton.setBounds(150, 10, 110, 30);
+
+        //Add action listeners
+        setDayButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               setDaysFrame();
+            }
+        });
+        setDayButtonPanel.add(setDayButton);
+        add(setDayButtonPanel);
+    }
+
+    private void setDaysFrame() {
+         setDaysFrame = new JFrame();
+
+        //edit frame
+        setDaysFrame.getContentPane().setBackground(new Color(251, 0, 0, 255));
+        setDaysFrame.setTitle("Set Days");
+        setDaysFrame.setLayout(null);
+        setDaysFrame.setBounds(0, 0, 400, 400);
+
+        selectDays();
+
+        setDaysFrame.setVisible(true);
+    }
+
+    //Create a method to
+    private void selectDays() {
+         JPanel selectDayPanel = new JPanel();
+        selectDayPanel.setBackground(new Color(138, 137, 137));
+        selectDayPanel.setLayout(null);
+        selectDayPanel.setBounds(25, 25, 330, 350);
+
+        //cHECK BOX FOR D
+        
+
+        setDaysFrame.add(selectDayPanel);
+    }
+
     //Method to set Am or Pm
     private void setAmPm() {
         JPanel setAmPm = new JPanel();
