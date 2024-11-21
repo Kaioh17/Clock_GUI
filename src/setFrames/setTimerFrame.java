@@ -21,7 +21,7 @@ public class setTimerFrame extends JFrame {
         this.callback = callback;
         //create an ui for users to set timer
         setTitle("Set Timer");
-        setSize(400, 400);
+        setSize(400, 280);
         getContentPane().setBackground(new Color(106, 106, 106));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -45,7 +45,12 @@ public class setTimerFrame extends JFrame {
 
         JButton startButton = new JButton("Set Alarm");
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(new Color(106, 106, 106));
+        buttonPanel.setLayout(null);
+        buttonPanel.setBounds(0, 0, 400, 40);
+        startButton.setBounds(100,40,150,50);
         buttonPanel.add(startButton);
+
 
         button_Style.attributeStyle(startButton);
         startButton.addActionListener(e -> {
