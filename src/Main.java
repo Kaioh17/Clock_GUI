@@ -18,7 +18,7 @@ public Main()
         setTitle("Clock");
         setSize(510,450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(true);
+        setResizable(false);
         getContentPane().setBackground(Color.BLACK);
 
         //cardLayout for switching between panels
@@ -71,12 +71,10 @@ public Main()
 
         //edit the button
         button_Style.mainStyle(timerButton, alarmButton,  stopWatchButton);
-//        timerButton.setPreferredSize(new Dimension(150,58));
-//        stopWatchButton.setPreferredSize(new Dimension(150,58));
        
        
 
-        //Action listeners for the button functions(using lambda)
+        //Action listeners to switch through the three panels using cardLayout (using lambda)
         timerButton.addActionListener(e -> cardLayout.show(mainPanel, "Timer"));
         alarmButton.addActionListener(e -> cardLayout.show(mainPanel, "Alarm"));
         stopWatchButton.addActionListener(e -> cardLayout.show(mainPanel, "Stop Watch"));
