@@ -10,6 +10,7 @@ import java.io.File;
 public class setAlarmFrame extends JFrame {
     private JPanel setTimePanel;
     private JFrame setDaysFrame;
+    private JLabel selectedDaysLabel = new JLabel(" ");
     public setAlarmFrame() {
         setTitle("Set Alarm");
         getContentPane().setBackground(new Color(106, 106, 106));
@@ -43,6 +44,7 @@ public class setAlarmFrame extends JFrame {
         add(setTimePanel, BorderLayout.CENTER);
 
     }
+    //A method that contains the set days button
     private void setDays() {
         JPanel setDayButtonPanel = new JPanel();
         JButton setDayButton = new JButton("Set Day");
@@ -53,7 +55,13 @@ public class setAlarmFrame extends JFrame {
         setDayButtonPanel.setBackground(new Color(138, 137, 137));
         setDayButtonPanel.setBounds(0, 150, 400, 50);
 
-        setDayButton.setBounds(150, 10, 110, 30);
+        setDayButton.setBounds(50, 10, 110, 30);
+
+        //Configure the selectDaysLabel
+        selectedDaysLabel.setBounds(180,10,200,30);
+        selectedDaysLabel.setFont(font_Style.roman.getFont());
+        selectedDaysLabel.setForeground(Color.WHITE);
+
 
         //Add action listeners
         setDayButton.addActionListener(new ActionListener() {
@@ -62,6 +70,7 @@ public class setAlarmFrame extends JFrame {
             }
         });
         setDayButtonPanel.add(setDayButton);
+        setDayButtonPanel.add(selectedDaysLabel);
         add(setDayButtonPanel);
     }
 
@@ -79,18 +88,58 @@ public class setAlarmFrame extends JFrame {
         setDaysFrame.setVisible(true);
     }
 
+    private JCheckBox[] dayCheckboxes = new JCheckBox[7]; // Array to hold checkboxes for days
     //Create a method to
     private void selectDays() {
          JPanel selectDayPanel = new JPanel();
         selectDayPanel.setBackground(new Color(138, 137, 137));
-        selectDayPanel.setLayout(null);
-        selectDayPanel.setBounds(25, 25, 330, 350);
+        selectDayPanel.setLayout(new BoxLayout(selectDayPanel, BoxLayout.Y_AXIS));
+        selectDayPanel.setBounds(25, 5, 330, 330);
 
-        //cHECK BOX FOR D
-        
+        String[] days =  {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        //Create and add checkboxes for each day
+        for(int i=0; i<days.length; i++){
 
+            dayCheckboxes[i] = new JCheckBox(days[i]);
+            dayCheckboxes[i].setBackground(new Color(138, 137, 137));
+            dayCheckboxes[i].setFont(font_Style.roman.getFont());
+            dayCheckboxes[i].setFocusPainted(false);
+            dayCheckboxes[i].setPreferredSize(new Dimension(150, 25));
+            selectDayPanel.add(Box.createVerticalStrut(5));
+            selectDayPanel.add(dayCheckboxes[i]);
+        }
+
+        JButton confirmButton = new JButton("Confirm");
+        button_Style.attributeStyle(confirmButton);
+        confirmButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                sendSelectedDays();
+                setDaysFrame.dispose();
+            }
+        });
+        //Create spacing between the checkboxes and button
+        selectDayPanel.add(Box.createVerticalStrut(10));
+        selectDayPanel.add(Box.createHorizontalStrut(3));
+
+        //Add confirm button and select days panel
+        selectDayPanel.add(confirmButton);
         setDaysFrame.add(selectDayPanel);
     }
+    //Method to send in the data gotten from the selected days
+    private void sendSelectedDays() {
+        StringBuilder selectedDays = new StringBuilder();
+        for(JCheckBox checkBox : dayCheckboxes){
+            if(checkBox.isSelected()){
+                if(selectedDays.length() > 0) selectedDays.append(", ");
+                selectedDays.append(checkBox.getText());
+            }
+        }
+
+        //Update days label with the select days
+        if(selectedDays.length() > 0)  selectedDaysLabel.setText(" " + selectedDays.toString());
+         else selectedDaysLabel.setText("Selected Days: None");
+    }
+
 
     //Method to set Am or Pm
     private void setAmPm() {
