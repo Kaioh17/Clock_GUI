@@ -73,7 +73,7 @@ public class setTimerFrame extends JFrame {
     {
         JPanel setHourPanel = new JPanel();
         setHourPanel.setBackground(new Color(122, 100, 100));
-        setHourPanel.setBounds(40, 24, 50, 100);
+        setHourPanel.setBounds(125, 24, 50, 100);
         setHourPanel.setLayout(new GridLayout(3,1));
         setHourPanel.setOpaque(false);
 
@@ -142,7 +142,7 @@ public class setTimerFrame extends JFrame {
     {
         JPanel serMinutePanel = new JPanel();
         serMinutePanel.setBackground(new Color(122, 100, 100));
-        serMinutePanel.setBounds(80, 24, 50, 100);
+        serMinutePanel.setBounds(165, 24, 50, 100);
         serMinutePanel.setLayout(new GridLayout(3,1));
         serMinutePanel.setOpaque(false);
 
@@ -211,7 +211,7 @@ public class setTimerFrame extends JFrame {
     {
         JPanel setSecondPanel = new JPanel();
         setSecondPanel.setBackground(new Color(122, 100, 100));
-        setSecondPanel.setBounds(120, 24, 50, 100);
+        setSecondPanel.setBounds(205, 24, 50, 100);
         setSecondPanel.setLayout(new GridLayout(3,1));
         setSecondPanel.setOpaque(false);
 
