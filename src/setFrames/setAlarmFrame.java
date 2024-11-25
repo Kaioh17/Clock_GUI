@@ -80,18 +80,22 @@ public class setAlarmFrame extends JFrame {
         add(setTimePanel, BorderLayout.CENTER);
 
     }
-    //A method that contains the set days button
+
+    //Method used see days selected and button to select the days
     private void setDays() {
         JPanel setDayButtonPanel = new JPanel();
         JButton setDayButton = new JButton("Set Day");
 
+        //Edit button
         button_Style.stopStyle(setDayButton);
+        setDayButton.setOpaque(false);
+        setDayButton.setForeground(new Color(81, 80, 80, 176));
 
         setDayButtonPanel.setLayout(null);
         setDayButtonPanel.setBackground(new Color(138, 137, 137));
         setDayButtonPanel.setBounds(0, 150, 400, 50);
 
-        setDayButton.setBounds(50, 10, 110, 30);
+        setDayButton.setBounds(30, 10, 110, 30);
 
         //Configure the selectDaysLabel
         selectedDaysLabel.setBounds(180,10,200,30);
@@ -114,7 +118,7 @@ public class setAlarmFrame extends JFrame {
          setDaysFrame = new JFrame();
 
         //edit frame
-        setDaysFrame.getContentPane().setBackground(new Color(251, 0, 0, 255));
+        setDaysFrame.getContentPane().setBackground(new Color(106, 106, 106));
         setDaysFrame.setTitle("Set Days");
         setDaysFrame.setLayout(null);
         setDaysFrame.setBounds(0, 0, 400, 400);
@@ -181,7 +185,7 @@ public class setAlarmFrame extends JFrame {
     private void setAmPm() {
         JPanel setAmPm = new JPanel();
         setAmPm.setBackground(new Color(122, 100, 100));
-        setAmPm.setBounds(120, 24, 50, 100);
+        setAmPm.setBounds(205, 24, 50, 100);
         setAmPm.setLayout(new GridLayout(3,1));
         setAmPm.setOpaque(false);
         JPanel AmPmPanel = new JPanel();
@@ -234,7 +238,7 @@ public class setAlarmFrame extends JFrame {
     private void setHour() {
         JPanel setHourPanel = new JPanel();
         setHourPanel.setBackground(new Color(122, 100, 100));
-        setHourPanel.setBounds(40, 24, 50, 100);
+        setHourPanel.setBounds(125, 24, 50, 100);
         setHourPanel.setLayout(new GridLayout(3,1));
         setHourPanel.setOpaque(false);JPanel timeFieldPanel = new JPanel();
 
@@ -289,7 +293,7 @@ public class setAlarmFrame extends JFrame {
     private void setMinute() {
         JPanel setMinutePanel = new JPanel();
         setMinutePanel.setBackground(new Color(122, 100, 100));
-        setMinutePanel.setBounds(80, 24, 50, 100);
+        setMinutePanel.setBounds(165, 24, 50, 100);
         setMinutePanel.setLayout(new GridLayout(3,1));
         setMinutePanel.setOpaque(false);JPanel timeFieldPanel = new JPanel();
 
