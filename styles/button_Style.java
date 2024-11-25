@@ -82,26 +82,8 @@ public class button_Style {
 
         }
     }
-    //UP and Down button style
-    public static void up_downStyle(JButton... buttons)
-    {
-        for(JButton button : buttons)
-        {
-            button.setBackground(Color.CYAN);
-            button.setForeground(Color.BLACK);
-            button.setFont(font_Style.roman.getFont());
-            button.setFocusable(false);
-            button.setPreferredSize(new Dimension(50, 50));
-        }
-    }
 
-//    @Override
-//    protected void paintComponent(int x,int y,int w, int h)
-//    {
-//        Graphics g = null;
-//        RoundRectangle2D roundedRectangle = new RoundRectangle2D.Float(x, y, w, h, 10, 10);
-//        g.fill(roundedRectangle);
-//    }
+    
 
 
 
