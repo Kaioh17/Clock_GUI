@@ -36,17 +36,19 @@ public class alarmPanel  extends JPanel{
 
         //Add action listener to buttons
         setAlarmButton.addActionListener(e -> openSetAlarmFrame() );
-       //add to main panel
-        add(setAlarmButton);
+
 
         // Initialize the panel where alarms will be displayed
         alarmSlot = new JPanel();
         alarmSlot.setLayout(new BoxLayout(alarmSlot, BoxLayout.Y_AXIS));
         alarmSlot.setBackground(Color.BLACK);
+
+        //add to main panel
         add(alarmSlot);
+        add(setAlarmButton);
     }
 
-    //A method to open the set timer frame
+    //Method to open the set timer frame
     private void openSetAlarmFrame() {
         setAlarmFrame setFrame = new setAlarmFrame(this);
         setFrame.setVisible(true);
