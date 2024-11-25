@@ -1,17 +1,49 @@
 package src.setFrames;
 
 import styles.*;
+//import src.alarmMemory;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import src.panels.alarmPanel;
 import java.io.File;
+import java.util.List;
+import java.util.ArrayList;
 
 public class setAlarmFrame extends JFrame {
+
     private JPanel setTimePanel;
     private JFrame setDaysFrame;
+    private JTextField hourField;
+    private JTextField minuteField;
+    private JTextField AmPmField;
     private JLabel selectedDaysLabel = new JLabel(" ");
-    public setAlarmFrame() {
+    private JCheckBox[] dayCheckboxes = new JCheckBox[7]; // Array to hold checkboxes for days
+    private List<alarmMemory> alarms = new ArrayList<>();
+//    private JPanel alarmDisplayPanel = new JPanel();
+    private alarmPanel parentPanel;
+
+    class alarmMemory {
+        private String time;
+        private String days;
+
+        private alarmMemory(String time, String days) {
+            this.time = time;
+            this.days = days;
+        }
+
+        public String getTime() {
+            return time;
+        }
+        public String getDays() {
+            return days;
+        }
+    }
+
+
+    public setAlarmFrame(alarmPanel parentPanel) {
+        this.parentPanel = parentPanel;
         setTitle("Set Alarm");
         getContentPane().setBackground(new Color(106, 106, 106));
 //        setSize(400, 400);
@@ -88,7 +120,7 @@ public class setAlarmFrame extends JFrame {
         setDaysFrame.setVisible(true);
     }
 
-    private JCheckBox[] dayCheckboxes = new JCheckBox[7]; // Array to hold checkboxes for days
+
     //Create a method to
     private void selectDays() {
          JPanel selectDayPanel = new JPanel();
@@ -155,7 +187,7 @@ public class setAlarmFrame extends JFrame {
         AmPmPanel.setBackground(new Color(244, 54, 54));
         AmPmPanel.setOpaque(false);
 
-        JTextField AmPmField = new JTextField("AM", 2);
+         AmPmField = new JTextField("AM", 2);
 
         //Edit text field
         AmPmField.setOpaque(false);
@@ -207,7 +239,7 @@ public class setAlarmFrame extends JFrame {
         timeFieldPanel.setBackground(new Color(244, 54, 54));
         timeFieldPanel.setOpaque(false);
 
-        JTextField hourField = new JTextField("12", 2);
+         hourField = new JTextField("12", 2);
 
         //Edit text field
         hourField.setOpaque(false);
@@ -262,7 +294,7 @@ public class setAlarmFrame extends JFrame {
         timeFieldPanel.setBackground(new Color(244, 54, 54));
         timeFieldPanel.setOpaque(false);
 
-        JTextField minuteField = new JTextField("59", 2);
+         minuteField = new JTextField("59", 2);
 
         //Edit text field
         minuteField.setOpaque(false);
@@ -333,7 +365,9 @@ public class setAlarmFrame extends JFrame {
         //Add action listener
         saveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                System.out.println("button clicked");
                 saveAlarm();
+
             }
         });
 
@@ -342,9 +376,40 @@ public class setAlarmFrame extends JFrame {
 
     //save alarm method (implementing the right functions
     private void saveAlarm() {
+        // Get selected time
+       String hour = hourField.getText();
+       String minute = minuteField.getText();
+       String amPm = AmPmField.getText();
+       String time = hour + ":" + minute + " " + amPm;
+
+        // Get selected days
+        String days = selectedDaysLabel.getText().replace("Selected Days: ", "");
+
+        if (days.equals("None")) {
+            days = "No days selected";
+        }
+        // Create and store alarm
+        alarmMemory alarm = new alarmMemory(time, days);
+        alarms.add(alarm);
+
+        // Send alarm to the parent panel
+        if (parentPanel != null) {
+            parentPanel.addAlarm(time + " : " + days);
+            parentPanel.revalidate();
+            parentPanel.repaint();
+        }
+
+        // Close the frame
+        dispose();
 
     }
 
+//    private void initializeAlarmDisplayPanel() {
+//        alarmDisplayPanel.setBackground(new Color(106, 106, 106));
+//        alarmDisplayPanel.setLayout(new BoxLayout(alarmDisplayPanel, BoxLayout.Y_AXIS));
+//        alarmDisplayPanel.setBounds(0, 350, 400, 100);
+//        alarmPanel.add(alarmDisplayPanel);
+//    }
     //Method for up icon label
     private JLabel upIcon() {
 
