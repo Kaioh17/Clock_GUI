@@ -24,15 +24,17 @@ public class alarmPanel  extends JPanel{
 
         //button to set alarm
        setAlarmButton = new JButton();
-
        setAlarmButton.setIcon(scaledIcon);
 
-
-
+       //Button panel
+        JPanel setButtonPanel = new JPanel(null);
+        setButtonPanel.setPreferredSize(new Dimension(1500, 80));
+        setButtonPanel.setOpaque(false);
+        setButtonPanel.add(setAlarmButton);
+        setAlarmButton.setBounds(290,10,50,50);
        //Edit set button
         button_Style.attributeStyle(setAlarmButton);
         setAlarmButton.setOpaque(false);
-
 
         //Add action listener to buttons
         setAlarmButton.addActionListener(e -> openSetAlarmFrame() );
@@ -44,8 +46,11 @@ public class alarmPanel  extends JPanel{
         alarmSlot.setBackground(Color.BLACK);
 
         //add to main panel
+        setButtonPanel.setMaximumSize(setButtonPanel.getPreferredSize());
+        add(Box.createRigidArea(new Dimension(0, 20)));
+        add(setButtonPanel);
+//        add(setAlarmButton);
         add(alarmSlot);
-        add(setAlarmButton);
     }
 
     //Method to open the set timer frame
