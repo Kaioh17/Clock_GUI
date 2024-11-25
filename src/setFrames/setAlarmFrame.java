@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.*;
 import src.panels.alarmPanel;
 import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -57,6 +59,8 @@ public class setAlarmFrame extends JFrame {
         setDays();
         setSaveButton();
         setCancelButton();
+        startAlarmCheck();
+
     }
 
     private void setTime()
@@ -321,7 +325,7 @@ public class setAlarmFrame extends JFrame {
         downMinuteIcon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                decrementTime(minuteField, 1);
+                decrementTime(minuteField, 0);
             }
         });
 
@@ -329,11 +333,6 @@ public class setAlarmFrame extends JFrame {
         setMinutePanel.add(timeFieldPanel);
         setMinutePanel.add(downMinuteIcon);
         setTimePanel.add(setMinutePanel);
-    }
-
-    //Method to set days of the week
-    private void setDaysPanel() {
-        
     }
 
     //A cancel method to dispose the frame on click
@@ -403,13 +402,6 @@ public class setAlarmFrame extends JFrame {
         dispose();
 
     }
-
-//    private void initializeAlarmDisplayPanel() {
-//        alarmDisplayPanel.setBackground(new Color(106, 106, 106));
-//        alarmDisplayPanel.setLayout(new BoxLayout(alarmDisplayPanel, BoxLayout.Y_AXIS));
-//        alarmDisplayPanel.setBounds(0, 350, 400, 100);
-//        alarmPanel.add(alarmDisplayPanel);
-//    }
     //Method for up icon label
     private JLabel upIcon() {
 
@@ -447,5 +439,42 @@ public class setAlarmFrame extends JFrame {
         int currentTime = Integer.parseInt(field.getText());
         if(currentTime > min) field.setText(String.format("%02d", currentTime - 1));
         else field.setText("12");
+    }
+
+    //method to run a timer every 1 second to check the alarm every 1second
+    private Timer timer;
+    private void startAlarmCheck() {
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkAlarms();
+            }
+        });
+        timer.start();
+    }
+
+    private void checkAlarms() {
+        //Get Current time and date
+        LocalDateTime now = LocalDateTime.now();
+        String currentDay = now.getDayOfWeek().toString();
+        String currentTime = now.format(DateTimeFormatter.ofPattern("hh:mm a"));
+
+        for (alarmMemory alarm : alarms) {
+            String alarmTime = alarm.getTime(); // Time in hh:mm AM/PM format
+            String alarmDays = alarm.getDays(); // Days in "Monday, Tuesday" format
+
+            // Check if the current time matches the alarm time
+            if (currentTime.equals(alarmTime)) {
+                // Check if the current day is included in the alarm days
+                if (alarmDays.equals("No days selected") || alarmDays.toUpperCase().contains(currentDay)) {
+                    triggerAlarm(alarmTime, alarmDays); // Trigger the alarm
+                }
+            }
+    }
+}
+
+    private void triggerAlarm(String alarmTime, String alarmDays) {
+        System.out.println("It is time");
+        JOptionPane.showMessageDialog(this, "Alarm! Time: " + alarmTime + "\nDays: " + alarmDays, "Alarm Triggered", JOptionPane.INFORMATION_MESSAGE);
     }
 }
