@@ -302,28 +302,6 @@ public class setTimerFrame extends JFrame {
         return downIconLabel;
     }
 
-//    // Method to increment time value with a maximum limit
-//    private void incrementTime(JTextField field, int currentValue, int maxValue) {
-//        try{
-//
-//        }
-//        if (currentValue < maxValue) {
-//            currentValue++;
-//        } else {
-//            currentValue = 0; // Reset to 0 if it exceeds max value
-//        }
-//        field.setText(String.valueOf(currentValue));
-//    }
-//
-//    // Method to decrement time value with a minimum limit of 0
-//    private void decrementTime(JTextField field, int currentValue, int maxValue) {
-//        if (currentValue > 0) {
-//            currentValue--;
-//        } else {
-//            currentValue = maxValue; // Reset to max if it goes below 0
-//        }
-//        field.setText(String.valueOf(currentValue));
-//    }
     //Create a call back method to send timer information to the main frame
     public interface TimerCallback {
         void onTimeSet(int hour,int minute,int second);
