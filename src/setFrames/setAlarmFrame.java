@@ -3,6 +3,7 @@ package src.setFrames;
 import styles.*;
 //import src.alarmMemory;
 
+import javax.print.attribute.standard.Media;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -14,6 +15,7 @@ import src.panels.alarmPanel;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -29,7 +31,6 @@ public class setAlarmFrame extends JFrame {
     private JLabel selectedDaysLabel = new JLabel(" ");
     private JCheckBox[] dayCheckboxes = new JCheckBox[7]; // Array to hold checkboxes for days
     private List<alarmMemory> alarms = new ArrayList<>();
-//    private JPanel alarmDisplayPanel = new JPanel();
     private alarmPanel parentPanel;
 
 
@@ -80,6 +81,7 @@ public class setAlarmFrame extends JFrame {
 
     }
 
+    //Method to set the time (hh:mm a)
     private void setTime()
     {
         //Create a panel to set time
@@ -131,6 +133,7 @@ public class setAlarmFrame extends JFrame {
         add(setDayButtonPanel);
     }
 
+    //Method to create a new frame to set the days
     private void setDaysFrame() {
          setDaysFrame = new JFrame();
 
@@ -519,6 +522,9 @@ public class setAlarmFrame extends JFrame {
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(audioSrc));
             clip.open(audioStream);
             clip.start();
+
+
+            // Play the sound
             System.out.println("Sound played");
         } catch (Exception ex) {
             System.err.println("Error playing sound: " + ex.getMessage());
