@@ -3,11 +3,17 @@ package src.setFrames;
 import styles.*;
 //import src.alarmMemory;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import src.panels.alarmPanel;
+
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -26,13 +32,17 @@ public class setAlarmFrame extends JFrame {
 //    private JPanel alarmDisplayPanel = new JPanel();
     private alarmPanel parentPanel;
 
+
     class alarmMemory {
         private String time;
         private String days;
+        private boolean triggeredToday;
+        // Default to false
 
         private alarmMemory(String time, String days) {
             this.time = time;
             this.days = days;
+            this.triggeredToday = false;
         }
 
         public String getTime() {
@@ -40,6 +50,13 @@ public class setAlarmFrame extends JFrame {
         }
         public String getDays() {
             return days;
+        }
+        public boolean isTriggeredToday() {
+            return triggeredToday;
+        }
+
+        public void setTriggeredToday(boolean triggered) {
+            this.triggeredToday = triggered;
         }
     }
 
@@ -246,8 +263,11 @@ public class setAlarmFrame extends JFrame {
         timeFieldPanel.setLayout(new FlowLayout());
         timeFieldPanel.setBackground(new Color(244, 54, 54));
         timeFieldPanel.setOpaque(false);
+        //to set to current time
+        LocalDateTime now = LocalDateTime.now();
+        String currentTime = now.format(DateTimeFormatter.ofPattern("hh"));
 
-         hourField = new JTextField("12", 2);
+         hourField = new JTextField(currentTime, 2);
 
         //Edit text field
         hourField.setOpaque(false);
@@ -270,16 +290,12 @@ public class setAlarmFrame extends JFrame {
                 incrementTime(hourField, 12);
             }
 
-            @Override
-            public void mouseWheelMoved(MouseWheelEvent e) {
-               incrementTime(hourField, 12);
-            }
         });
 
         downHourIcon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                decrementTime(hourField, 1);
+                decrementTime(hourField, 0);
             }
         });
 
@@ -301,8 +317,10 @@ public class setAlarmFrame extends JFrame {
         timeFieldPanel.setLayout(new FlowLayout());
         timeFieldPanel.setBackground(new Color(244, 54, 54));
         timeFieldPanel.setOpaque(false);
-
-         minuteField = new JTextField("59", 2);
+        LocalDateTime now = LocalDateTime.now();
+        //To set current time
+          String currentTime = now.format(DateTimeFormatter.ofPattern("mm"));
+         minuteField = new JTextField(currentTime, 2);
 
         //Edit text field
         minuteField.setOpaque(false);
@@ -457,6 +475,8 @@ public class setAlarmFrame extends JFrame {
         timer.start();
     }
 
+
+    //Method to check alarm every second
     private void checkAlarms() {
         //Get Current time and date
         LocalDateTime now = LocalDateTime.now();
@@ -464,21 +484,44 @@ public class setAlarmFrame extends JFrame {
         String currentTime = now.format(DateTimeFormatter.ofPattern("hh:mm a"));
 
         for (alarmMemory alarm : alarms) {
-            String alarmTime = alarm.getTime(); // Time in hh:mm AM/PM format
-            String alarmDays = alarm.getDays(); // Days in "Monday, Tuesday" format
+            String alarmTime = alarm.getTime(); // Retrieve the alarm time in hh:mm AM/PM format
+            String alarmDays = alarm.getDays(); // Retrieve the alarm days as a comma-separated string (e.g., "Monday, Tuesday")
 
             // Check if the current time matches the alarm time
             if (currentTime.equals(alarmTime)) {
                 // Check if the current day is included in the alarm days
                 if (alarmDays.equals("No days selected") || alarmDays.toUpperCase().contains(currentDay)) {
-                    triggerAlarm(alarmTime, alarmDays); // Trigger the alarm
+                    if(!alarm.isTriggeredToday())
+                    {
+                        triggerAlarm(alarmTime, alarmDays); // Trigger the alarm
+                        alarm.setTriggeredToday(true); // Mark as triggered for today
+                    }
                 }
             }
+        }
     }
-}
 
+    //Method to trigger alarm
     private void triggerAlarm(String alarmTime, String alarmDays) {
         System.out.println("It is time");
-        JOptionPane.showMessageDialog(this, "Alarm! Time: " + alarmTime + "\nDays: " + alarmDays, "Alarm Triggered", JOptionPane.INFORMATION_MESSAGE);
+        playSound();
+        JOptionPane.showMessageDialog(this, "Alarm! Time: " + alarmTime + "\nDays: "
+                + alarmDays, "Alarm Triggered", JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    // Method to play a beep sound
+    private void playSound() {
+        try {
+            // Use a short beep sound
+            Clip clip = AudioSystem.getClip();
+            InputStream audioSrc = getClass().getResourceAsStream("/src/Import/bark.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(new BufferedInputStream(audioSrc));
+            clip.open(audioStream);
+            clip.start();
+            System.out.println("Sound played");
+        } catch (Exception ex) {
+            System.err.println("Error playing sound: " + ex.getMessage());
+        }
     }
 }
