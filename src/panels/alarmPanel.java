@@ -30,8 +30,9 @@ public class alarmPanel  extends JPanel{
         JPanel setButtonPanel = new JPanel(null);
         setButtonPanel.setPreferredSize(new Dimension(1500, 80));
         setButtonPanel.setOpaque(false);
+//        setButtonPanel.setBackground(new Color(0x6B020002, true));
         setButtonPanel.add(setAlarmButton);
-        setAlarmButton.setBounds(290,10,50,50);
+        setAlarmButton.setBounds(390,10,50,50);
        //Edit set button
         button_Style.attributeStyle(setAlarmButton);
         setAlarmButton.setOpaque(false);
