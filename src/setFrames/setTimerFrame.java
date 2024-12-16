@@ -22,13 +22,10 @@ public class setTimerFrame extends JFrame {
         //create an ui for users to set timer
         setTitle("Set Timer");
         setSize(400, 280);
-        getContentPane().setBackground(new Color(106, 106, 106));
+        getContentPane().setBackground(new Color(106, 106, 106, 210));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLayout(new GridLayout(2,1));
-
-
-
 
 
         setTimerPanel();
@@ -73,7 +70,7 @@ public class setTimerFrame extends JFrame {
     {
         JPanel setHourPanel = new JPanel();
         setHourPanel.setBackground(new Color(122, 100, 100));
-        setHourPanel.setBounds(125, 24, 50, 100);
+        setHourPanel.setBounds(125, 14, 50, 100);
         setHourPanel.setLayout(new GridLayout(3,1));
         setHourPanel.setOpaque(false);
 
@@ -142,7 +139,7 @@ public class setTimerFrame extends JFrame {
     {
         JPanel serMinutePanel = new JPanel();
         serMinutePanel.setBackground(new Color(122, 100, 100));
-        serMinutePanel.setBounds(165, 24, 50, 100);
+        serMinutePanel.setBounds(165, 14, 50, 100);
         serMinutePanel.setLayout(new GridLayout(3,1));
         serMinutePanel.setOpaque(false);
 
@@ -211,7 +208,7 @@ public class setTimerFrame extends JFrame {
     {
         JPanel setSecondPanel = new JPanel();
         setSecondPanel.setBackground(new Color(122, 100, 100));
-        setSecondPanel.setBounds(205, 24, 50, 100);
+        setSecondPanel.setBounds(205, 14, 50, 100);
         setSecondPanel.setLayout(new GridLayout(3,1));
         setSecondPanel.setOpaque(false);
 
@@ -296,7 +293,6 @@ public class setTimerFrame extends JFrame {
         ImageIcon upIcon = new ImageIcon("Clock_Gui/src/Import/down.png");
         Image scaledImage = upIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
         JLabel downIconLabel = new JLabel(scaledIcon);
 
         return downIconLabel;
