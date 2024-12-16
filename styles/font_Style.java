@@ -15,10 +15,10 @@ public class font_Style  {
     //initialized font style method for easier editing and control
     public static final font_Style serif = new font_Style("Times New Roman",Font.PLAIN,65);
     public static final font_Style roman = new font_Style("Times New Roman",Font.PLAIN,18);
-//    public static final font_Style ROMANII = new font_Style("Malgun Gothic",Font.PLAIN,35);
     public static final font_Style sansSerif = new font_Style("SansSerif",Font.BOLD,20);
 
-    
+
+    //Method to hold the font name, style, size
     public font_Style(String fontName, int style,int size)
     {
         this.fontName = fontName;
