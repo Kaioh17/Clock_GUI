@@ -66,7 +66,7 @@ public class button_Style {
 
         }
     }
-    //resume button style
+    //Resume button style
     public static void resumeStyle(JButton... buttons)
     {
         for(JButton button : buttons)
@@ -82,11 +82,4 @@ public class button_Style {
 
         }
     }
-
-
-
-
-
-
-
 }
