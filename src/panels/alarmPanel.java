@@ -14,6 +14,7 @@ public class alarmPanel  extends JPanel{
 
     public alarmPanel()
     {
+        //Editing Alarm Panel
        setBackground(Color.BLACK);
        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -33,6 +34,7 @@ public class alarmPanel  extends JPanel{
 //        setButtonPanel.setBackground(new Color(0x6B020002, true));
         setButtonPanel.add(setAlarmButton);
         setAlarmButton.setBounds(390,10,50,50);
+
        //Edit set button
         button_Style.attributeStyle(setAlarmButton);
         setAlarmButton.setOpaque(false);
@@ -44,12 +46,13 @@ public class alarmPanel  extends JPanel{
         // Initialize the panel where alarms will be displayed
         alarmSlot = new JPanel();
         alarmSlot.setLayout(new BoxLayout(alarmSlot, BoxLayout.Y_AXIS));
-        alarmSlot.setBackground(Color.BLACK);
+//        alarmSlot.setLayout(null);
+        alarmSlot.setBackground(Color.GRAY);
 
         //add to main panel
         setButtonPanel.setMaximumSize(setButtonPanel.getPreferredSize());
         add(Box.createRigidArea(new Dimension(0, 20)));
-        add(setButtonPanel);
+        add(setButtonPanel);    
 //        add(setAlarmButton);
         add(alarmSlot);
     }
@@ -65,6 +68,8 @@ public class alarmPanel  extends JPanel{
         JLabel alarmLabel = new JLabel(alarmText);
         alarmLabel.setFont(font_Style.sansSerif.getFont());
         alarmLabel.setForeground(Color.WHITE);
+        alarmLabel.setBounds(10,0,20,20);
+
         alarmSlot.add(alarmLabel);
         alarmSlot.revalidate();
         alarmSlot.repaint();
