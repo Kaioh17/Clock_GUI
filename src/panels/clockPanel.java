@@ -22,11 +22,12 @@ public class clockPanel extends JPanel{
      */
     public clockPanel()
     {
+        // edit clock panel
         setBackground(Color.BLACK);
         timeFormat = new SimpleDateFormat("hh:mm:ss a  ");
         dayFormat = new SimpleDateFormat(" MMMMM dd, yyyy");
 
-
+        //Time label
         timeLabel = new JLabel();
         timeLabel.setFont(font_Style.roman.getFont());
         timeLabel.setForeground(Color.WHITE);
