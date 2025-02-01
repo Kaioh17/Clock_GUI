@@ -1,6 +1,6 @@
 package src.panels;
 
-import src.setFrames.setAlarmFrame;
+import src.setFrames.*;
 import styles.*;
 
 
