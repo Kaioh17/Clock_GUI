@@ -1,61 +1,56 @@
-Java Clock GUI
+# Java Clock GUI
 
-Overview
+A Java desktop application that integrates a **Real-Time Clock**, **Alarm System**, **Stopwatch**, and **Countdown Timer** in one clean and user-friendly interface. Built with **Java Swing**, this project demonstrates event-driven programming, responsive UI design, and real-time timekeeping logic.
 
-This Java-based GUI application provides multiple timekeeping functionalities, including a real-time clock, alarm, stopwatch, and countdown timer. The application is built using Java Swing, featuring an interactive and user-friendly interface for managing time-related tasks.
+---
 
-Features
+## Features
 
-Real-Time Clock: Displays the current time and date, updating every second.
+### Real-Time Clock
+- Continuously updates the current system time and date.
+- 12/24-hour format support (future toggle feature).
 
-Alarm System: Allows users to set alarms and receive notifications.
+### Alarm System
+- Users can set multiple alarms.
+- Visual and sound-based notification when alarm triggers.
+- *(Planned)* Snooze functionality for flexible alerts.
 
-Stopwatch: Includes start, stop, and reset functions to track elapsed time.
+### Stopwatch
+- Start, stop, and reset to measure elapsed time.
+- Displayed in hours, minutes, seconds, and milliseconds.
+- Precision timing using Swing Timer.
 
-Countdown Timer: Enables users to set a custom timer with pause and reset options.
+### Countdown Timer
+- Custom time entry for countdowns.
+- Pause, resume, and reset functions.
+- Alert notifies when time is up.
 
-User-Friendly Interface: Designed with Swing components and custom styling.
+---
 
-Technologies Used
+## GUI & Design
 
-Java (Core language)
+- **Swing Framework** for building interactive components.
+- Custom styling using layout managers and color themes.
+- Intuitive navigation between modules (Clock, Alarm, Stopwatch, Timer).
+- Responsive layout for different screen sizes.
 
-Swing (GUI framework for Java)
+---
 
-Timer API (For managing real-time updates)
+## Tech Stack
 
-Event-Driven Programming (Handles user interactions efficiently)
+| Component           | Description                                |
+|---------------------|--------------------------------------------|
+| Java                | Core programming language                  |
+| Swing               | GUI toolkit for building the desktop UI    |
+| javax.swing.Timer   | For real-time clock updates and animations |
+| Event Listeners     | For managing button clicks and user inputs |
+| Object-Oriented Design | Modular and extensible code structure  |
 
-Installation & Setup
+---
 
-Clone the repository:
+## Setup & Installation
 
-git clone https://github.com/your-username/Clock-GUI.git
+### Requirements
+- Java 8 or higher
+- IDE such as IntelliJ IDEA, Eclipse, or NetBeans
 
-Open the project in an IDE (e.g., IntelliJ IDEA, Eclipse, NetBeans).
-
-Ensure Java is installed (Java 8+ recommended).
-
-Run the Main.java file to start the application.
-
-Usage
-
-Open the application to see the real-time clock.
-
-Click the Alarm button to set a new alarm.
-
-Use the Stopwatch to measure elapsed time.
-
-Set a Countdown Timer and receive notifications when time runs out.
-
-Future Enhancements
-
-Add a snooze feature for alarms.
-
-Implement sound customization for notifications.
-
-Improve UI with additional themes.
-
-Contributing
-
-Contributions are welcome! Feel free to submit a pull request or open an issue for suggestions.
